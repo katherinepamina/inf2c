@@ -83,7 +83,14 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
     }
     
     public void bikeDocked(String keyID) {
+    	okLight.flash();
+    	lock.lock();
     	
+    	//check if user is a registered user rather than a staff member
+    	if (true) { //return bike requirement
+    		User returningUser = getUserByKeyID(keyID);
+    		returningUser.endCurrentSession();
+    	}
     }
     
 
@@ -106,6 +113,8 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
     private User getUserByKeyID(String keyID) {
     	return station.getUserByKeyID(keyID);
     }
+    
+    
     
  
 
