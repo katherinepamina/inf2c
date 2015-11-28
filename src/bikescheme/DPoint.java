@@ -91,17 +91,27 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		okLight.flash();
 		lock.lock();
 
-		User returningUser = getUserByBikeID(bikeID);
+		Bike bike = getBikeByBikeID(bikeID);
+		
+		if (bike == null) { //bike is being added, create new bike
+			Bike newBike = createNewBike();
+		}
+		
+		User returningUser = bike.getCurrentUser();
 
 		// if user is a staff member, add Bike
 		if (returningUser == null) {
-
-			return;
-		} else {
 			
-			returningUser.endCurrentSession();
+			return;
+		} else { //user is returning bike
+			
+			returnBike(returningUser);
 
 		}
+	}
+	
+	private void returnBike(User rUser) {
+		rUser.endCurrentSession();
 	}
 
 	public void keyInserted(String keyId) {
@@ -127,13 +137,13 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	private boolean isUser(String keyID) {
 		return station.isUser(keyID);
 	}
-
-	private User getUserByBikeID(String bikeID) {
-		return station.getUserByBikeID(bikeID);
-	}
 	
 	private Bike getBikeByBikeID(String bikeID) {
 		return station.getBikeByBikeID(bikeID);
+	}
+	
+	private Bike createNewBike() {
+		
 	}
 
 }
