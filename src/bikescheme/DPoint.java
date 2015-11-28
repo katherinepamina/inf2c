@@ -90,12 +90,15 @@ public class DPoint implements KeyInsertionObserver {
     public void keyInserted(String keyId) {
         logger.fine(getInstanceName());
         
-        
-        okLight.flash();       
+        hireBike(keyId);
+             
     }
     
     private void hireBike(String keyID) {
-    	//User rentingUser = getUserByKeyID();
+    	User rentingUser = getUserByKeyID(keyID);
+    	rentingUser.startNewSession();
+    	lock.unlock();
+    	okLight.flash();
     }
     
     private User getUserByKeyID(String keyID) {
