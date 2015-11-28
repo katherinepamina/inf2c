@@ -3,6 +3,7 @@
  */
 package bikescheme;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,8 @@ public class Hub implements AddDStationObserver {
     private HubTerminal terminal;
     private HubDisplay display;
     private Map<String,DStation> dockingStationMap;
+    private ArrayList<User> users;
+    private HashMap<String, User> keyIDToUserMap;
     
     /**
      * 
@@ -41,6 +44,9 @@ public class Hub implements AddDStationObserver {
         terminal.setObserver(this);
         display = new HubDisplay("hd");
         dockingStationMap = new HashMap<String,DStation>();
+        users = new ArrayList<User>();
+        //TODO: in register user update this map
+        keyIDToUserMap = new HashMap<String, User>();
         
         // Schedule timed notification for generating updates of 
         // hub display. 
@@ -101,7 +107,7 @@ public class Hub implements AddDStationObserver {
         logger.fine("");
         
         DStation newDStation = 
-                new DStation(instanceName, eastPos, northPos, numPoints);
+                new DStation(instanceName, eastPos, northPos, numPoints, this);
         dockingStationMap.put(instanceName, newDStation);
         
         // Now connect up DStation to event distributor and collector.
@@ -115,6 +121,10 @@ public class Hub implements AddDStationObserver {
     
     public DStation getDStation(String instanceName) {
         return dockingStationMap.get(instanceName);
+    }
+    
+    public User getUserByKeyID(String keyID) {
+    	return keyIDToUserMap.get(keyID);
     }
  
 

@@ -21,6 +21,9 @@ public class DPoint implements KeyInsertionObserver {
     private int index;
     private boolean free;
     private Bike bike;
+    private BikeLock lock;
+    private BikeSensor sensor;
+    private DStation station;
  
     /**
      * 
@@ -31,16 +34,19 @@ public class DPoint implements KeyInsertionObserver {
      * @param index of reference to this docking point  in owning DStation's
      *  list of its docking points.
      */
-    public DPoint(String instanceName, int index) {
+    public DPoint(String instanceName, int index, DStation station) {
 
      // Construct and make connections with interface devices
         
         keyReader = new KeyReader(instanceName + ".kr");
         keyReader.setObserver(this);
         okLight = new OKLight(instanceName + ".ok");
+        lock = new BikeLock(instanceName + ".bl");
+        sensor = new BikeSensor(instanceName + ".bs");
         this.instanceName = instanceName;
         this.index = index;
         this.free = true;
+        this.station = station;
     }
        
     public void setDistributor(EventDistributor d) {
@@ -84,7 +90,16 @@ public class DPoint implements KeyInsertionObserver {
     public void keyInserted(String keyId) {
         logger.fine(getInstanceName());
         
+        
         okLight.flash();       
+    }
+    
+    private void hireBike(String keyID) {
+    	//User rentingUser = getUserByKeyID();
+    }
+    
+    private User getUserByKeyID(String keyID) {
+    	return station.getUserByKeyID(keyID);
     }
     
  

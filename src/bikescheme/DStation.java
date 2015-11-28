@@ -25,6 +25,7 @@ public class DStation implements StartRegObserver {
     private CardReader cardReader; 
     private KeyIssuer keyIssuer;
     private List<DPoint> dockingPoints;
+    private Hub hub;
  
     /**
      * 
@@ -41,13 +42,15 @@ public class DStation implements StartRegObserver {
             String instanceName,
             int eastPos,
             int northPos,
-            int numPoints) {
+            int numPoints, 
+            Hub hub) {
         
      // Construct and make connections with interface devices
         
         this.instanceName = instanceName;
         this.eastPos = eastPos;
         this.northPos = northPos;
+        this.hub = hub;
         
         touchScreen = new DSTouchScreen(instanceName + ".ts");
         touchScreen.setObserver(this);
@@ -113,6 +116,7 @@ public class DStation implements StartRegObserver {
     public int getNorthPos() {
         return northPos;
     }
+    
     public int getNumFreePoints() {
     	int count = 0;
     	for (DPoint dp: dockingPoints) {
@@ -122,9 +126,13 @@ public class DStation implements StartRegObserver {
     	}
     	return count;
     }
+    
     public int getNumPoints() {
     	return dockingPoints.size();
     }
  
+    public User getUserByKeyID(String keyID) {
+    	return hub.getUserByKeyID(keyID);
+    }
 
 }
