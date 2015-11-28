@@ -26,6 +26,8 @@ public class Hub implements AddDStationObserver {
     private Map<String,DStation> dockingStationMap;
     private ArrayList<User> users;
     private HashMap<String, User> keyIDToUserMap;
+    private HashMap<String, User> bikeIDToUserMap;
+    private HashMap<String, Bike> bikeIDToBikeMap;
     
     /**
      * 
@@ -45,8 +47,10 @@ public class Hub implements AddDStationObserver {
         display = new HubDisplay("hd");
         dockingStationMap = new HashMap<String,DStation>();
         users = new ArrayList<User>();
-        //TODO: in register user update this map
+        
         keyIDToUserMap = new HashMap<String, User>();
+        bikeIDToUserMap = new HashMap<String, User>();
+        bikeIDToBikeMap = new HashMap<String, Bike>();
         
         // Schedule timed notification for generating updates of 
         // hub display. 
@@ -141,6 +145,13 @@ public class Hub implements AddDStationObserver {
     public boolean isUser(String keyID) {
     	return keyIDToUserMap.containsKey(keyID);
     }
+    
+    public User getUserByBikeID(String bikeID) {
+    	return bikeIDToUserMap.get(bikeID);
+    }
  
+    public Bike getBikeByBikeID(String bikeID) {
+    	return bikeIDToBikeMap.get(bikeID);
+    }
 
 }

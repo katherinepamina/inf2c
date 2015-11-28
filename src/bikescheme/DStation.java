@@ -150,5 +150,13 @@ public class DStation implements StartRegObserver {
     public boolean isUser(String keyID) {
     	return hub.isUser(keyID);
     }
+    
+    public User getUserByBikeID(String bikeID) {
+    	return hub.getUserByBikeID(bikeID);
+    }
+    
+    public Bike getBikeByBikeID(String bikeID) {
+    	return hub.getBikeByBikeID(bikeID);
+    }
 
 }
