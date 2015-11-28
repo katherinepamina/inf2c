@@ -1,6 +1,7 @@
 package bikescheme;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Session {
 	private Date start;
@@ -10,7 +11,6 @@ public class Session {
 	public Session() {
 		start();
 		numExtensions = 0;
-		paid = false;
 	}
 	
 	public void start() {
@@ -29,10 +29,19 @@ public class Session {
 	}
 	
 	public int cost() {
-		int 
-		// Subtract 15 min for each extension
-		// 1 pound for first 30 min
-		// 2 pound for subsequent 30 min
+		long duration  = end.getTime() - start.getTime();
+		long diffInMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
 		
+		// Subtract 15 min for each extension
+		diffInMinutes = diffInMinutes - 15 * numExtensions;
+		
+		
+		// 1 pound for first 30 min
+		int cost = 1;
+		diffInMinutes -= 30;
+		
+		// 2 pound for subsequent 30 min
+		cost += 2 * Math.ceil(diffInMinutes / 30);
+		return cost;
 	}
 }

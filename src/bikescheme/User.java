@@ -4,13 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+	int userId;
+	String firstName;
+	String lastName;
 	BankCard bankcard;
 	Key key;
-	private List<Session> sessions;
+	private List<Session> allSessions;
+	private List<Session> todaySessions;
 	
-	public User(BankCard b, Key k) {
+	public User(int id, String fn, String ln, BankCard b, Key k) {
+		userId = id;
+		firstName = fn;
+		lastName = ln;
 		bankcard = b;
 		key = k;
-		sessions = new ArrayList<Session>();
+		allSessions = new ArrayList<Session>();
+		todaySessions = new ArrayList<Session>();
+	}
+	
+	public void startNewSession() {
+		Session s = new Session();
+		allSessions.add(s);
+		todaySessions.add(s);
 	}
 }
