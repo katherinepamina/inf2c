@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  * @author pbj
  *
  */
-public class DPoint implements KeyInsertionObserver {
+public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
     public static final Logger logger = Logger.getLogger("bikescheme");
 
     private KeyReader keyReader; 
@@ -82,11 +82,11 @@ public class DPoint implements KeyInsertionObserver {
     	return bike;
     }
     
-    /** 
-     * Dummy implementation of docking point functionality on key insertion.
-     * 
-     * Here, just flash the OK light.
-     */
+    public void bikeDocked(String keyID) {
+    	
+    }
+    
+
     public void keyInserted(String keyId) {
         logger.fine(getInstanceName());
         
@@ -99,6 +99,8 @@ public class DPoint implements KeyInsertionObserver {
     	rentingUser.startNewSession();
     	lock.unlock();
     	okLight.flash();
+    	free = false;
+    	bike = null;
     }
     
     private User getUserByKeyID(String keyID) {
