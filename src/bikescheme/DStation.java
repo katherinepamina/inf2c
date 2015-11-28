@@ -113,6 +113,18 @@ public class DStation implements StartRegObserver {
     public int getNorthPos() {
         return northPos;
     }
+    public int getNumFreePoints() {
+    	int count = 0;
+    	for (DPoint dp: dockingPoints) {
+    		if (dp.isFree()) {
+    			count++;
+    		}
+    	}
+    	return count;
+    }
+    public int getNumPoints() {
+    	return dockingPoints.size();
+    }
  
 
 }

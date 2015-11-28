@@ -19,6 +19,8 @@ public class DPoint implements KeyInsertionObserver {
     private OKLight okLight;
     private String instanceName;
     private int index;
+    private boolean free;
+    private Bike bike;
  
     /**
      * 
@@ -38,6 +40,7 @@ public class DPoint implements KeyInsertionObserver {
         okLight = new OKLight(instanceName + ".ok");
         this.instanceName = instanceName;
         this.index = index;
+        this.free = true;
     }
        
     public void setDistributor(EventDistributor d) {
@@ -54,6 +57,23 @@ public class DPoint implements KeyInsertionObserver {
     }
     public int getIndex() {
         return index;
+    }
+    
+    public boolean isFree() {
+    	return free;
+    }
+    public void setFree(boolean f) {
+    	free = f;
+    }
+    
+    public void addBike(Bike b) {
+    	if (isFree()) {
+    		bike = b;
+    		free = false;
+    	}  
+    }
+    public Bike getBike() {
+    	return bike;
     }
     
     /** 
