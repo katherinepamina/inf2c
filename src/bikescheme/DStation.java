@@ -105,16 +105,17 @@ public class DStation implements StartRegObserver {
         
         // Create a new user
         String id = Integer.toString(hub.getNumUsers() + 1); // numUsers +  1
-        BankCard card = new BankCard(bankCardNum, authCode);
+        BankCard card = new BankCard(2, 2); // dummy card
         // For simplicity, key id == user id (since each user has only one key)
         Key key = new Key(id);
-        User u = new User(id, firstName, lastName, card, key);
+        User u = new User(id, personalInfo, card, key);
         hub.getUserList().add(u);
         hub.getKeyUserMap().put(id,u);
         
         
         keyIssuer.issueKey(); // Generate output event
     }
+    
     
     public String getInstanceName() {
         return instanceName;
