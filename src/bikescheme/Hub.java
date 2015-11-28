@@ -28,6 +28,7 @@ public class Hub implements AddDStationObserver {
     private HashMap<String, User> keyIDToUserMap;
     private HashMap<String, User> bikeIDToUserMap;
     private HashMap<String, Bike> bikeIDToBikeMap;
+    private int bikeCounter = 0;
     
     /**
      * 
@@ -152,6 +153,12 @@ public class Hub implements AddDStationObserver {
  
     public Bike getBikeByBikeID(String bikeID) {
     	return bikeIDToBikeMap.get(bikeID);
+    }
+    
+    public Bike createNewBike() {
+    	Bike newBike = new Bike(bikeCounter);
+    	bikeCounter++;
+    	return newBike;
     }
 
 }

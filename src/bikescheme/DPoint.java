@@ -143,7 +143,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	}
 	
 	private Bike createNewBike() {
-		
+		return station.createNewBike();
 	}
 
 }

@@ -159,5 +159,9 @@ public class DStation implements StartRegObserver {
     public Bike getBikeByBikeID(String bikeID) {
     	return hub.getBikeByBikeID(bikeID);
     }
+    
+    public Bike createNewBike() {
+    	return hub.createNewBike();
+    }
 
 }
