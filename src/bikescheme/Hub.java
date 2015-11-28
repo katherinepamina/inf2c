@@ -126,15 +126,16 @@ public class Hub implements AddDStationObserver {
     public User getUserByKeyID(String keyID) {
     	return keyIDToUserMap.get(keyID);
     }
-    /* my changes */
+    
     public ArrayList<User> getUserList() {
     	return users;
     }
     public HashMap<String, User> getKeyUserMap() {
     	return keyIDToUserMap;
     }
-   
-    // */
+    public int getNumUsers() {
+    	return users.size();
+    }
  
 
 }

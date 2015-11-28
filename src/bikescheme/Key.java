@@ -1,8 +1,8 @@
 package bikescheme;
 
 public class Key {
-	private int keyId;
-	public Key(int id) {
+	private String keyId;
+	public Key(String id) {
 		this.keyId = id;
 	}
 }
