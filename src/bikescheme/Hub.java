@@ -26,7 +26,6 @@ public class Hub implements AddDStationObserver {
     private Map<String,DStation> dockingStationMap;
     private ArrayList<User> users;
     private HashMap<String, User> keyIDToUserMap;
-    private HashMap<String, User> bikeIDToUserMap;
     private HashMap<String, Bike> bikeIDToBikeMap;
     private int bikeCounter = 0;
     
@@ -50,7 +49,6 @@ public class Hub implements AddDStationObserver {
         users = new ArrayList<User>();
         
         keyIDToUserMap = new HashMap<String, User>();
-        bikeIDToUserMap = new HashMap<String, User>();
         bikeIDToBikeMap = new HashMap<String, Bike>();
         
         // Schedule timed notification for generating updates of 
@@ -67,15 +65,9 @@ public class Hub implements AddDStationObserver {
                     public void processTimedNotification() {
                         logger.fine("");
                         
-                        for (String instName : dockingStationMap.keySet()) {
-                        	DStation station = dockingStationMap.get(instName);
-                        	
-                        }
-                        
-                        String[] occupancyArray = 
+                        String[] occupancyArray = generateOccupancyArray();
                                 // "DSName","East","North","Status","#Occupied","#DPoints"
-                            {  "A",      "100",  "200",  "HIGH",       "19",     "20",
-                               "B",      "300", "-500",   "LOW",        "1",     "50" };
+                            
 
                         List<String> occupancyData = Arrays.asList(occupancyArray);
                         display.showOccupancy(occupancyData);
@@ -127,6 +119,40 @@ public class Hub implements AddDStationObserver {
         newDStation.setCollector(c);
     }
     
+    //generates Occupancy array based off DStation statuses
+    private String [] generateOccupancyArray() {
+    	String [] occupancyArray = new String[dockingStationMap.keySet().size()*6];
+        int counter = 0;
+        for (String instName : dockingStationMap.keySet()) {
+        	DStation station = dockingStationMap.get(instName);
+        	int east = station.getEastPos();
+        	int north = station.getNorthPos();
+        	int numFree = station.getNumFreePoints();
+        	int numDPoints = station.getNumPoints();
+        	int numOccupied = numDPoints - numFree;
+        	double occupancy = (numOccupied + 0.0)/numDPoints;
+        	String status = "";
+        	if (occupancy > .85) {
+        		status = "HIGH";
+        	} else if (occupancy < .15) {
+        		status = "LOW";
+        	} else {
+        		status = "OK";
+        	}
+        	
+        	occupancyArray[counter] = instName;
+        	occupancyArray[counter + 1] = Integer.toString(east);
+        	occupancyArray[counter + 2] = Integer.toString(north);
+        	occupancyArray[counter + 3] = status;
+        	occupancyArray[counter + 4] = Integer.toString(numOccupied);
+        	occupancyArray[counter + 5] = Integer.toString(numDPoints);
+        	
+        	counter += 6;
+        }
+        
+        return occupancyArray;
+    }
+    
     public DStation getDStation(String instanceName) {
         return dockingStationMap.get(instanceName);
     }
@@ -150,9 +176,6 @@ public class Hub implements AddDStationObserver {
     	return keyIDToUserMap.containsKey(keyID);
     }
     
-    public User getUserByBikeID(String bikeID) {
-    	return bikeIDToUserMap.get(bikeID);
-    }
  
     public Bike getBikeByBikeID(String bikeID) {
     	return bikeIDToBikeMap.get(bikeID);
