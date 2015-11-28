@@ -10,8 +10,8 @@ public class User {
 	BankCard bankcard;
 	Key key;
 	Session currentSession;
-	private List<Session> allSessions;
-	private List<Session> todaySessions;
+	private ArrayList<Session> allSessions;
+	private ArrayList<Session> todaySessions;
 	
 	public User(String id, String pd, BankCard b, Key k) {
 		userId = id;
@@ -22,14 +22,21 @@ public class User {
 		todaySessions = new ArrayList<Session>();
 	}
 	
-	public void startNewSession() {
-		Session s = new Session();
-		currentSession = s;
+	public void startNewSession(DStation s) {
+		Session sesh = new Session();
+		sesh.start(s);
+		currentSession = sesh;
 	}
-	public void endCurrentSession() {
-		currentSession.end();
+	public void endCurrentSession(DStation s) {
+		currentSession.end(s);
 		allSessions.add(currentSession);
 		todaySessions.add(currentSession);
 		currentSession = null;
+	}
+	public ArrayList<Session> getTodaySessions() {
+		return todaySessions;
+	}
+	public ArrayList<Session> getAllSessions() {
+		return allSessions;
 	}
 }

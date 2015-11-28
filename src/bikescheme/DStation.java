@@ -3,6 +3,8 @@
  */
 package bikescheme;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -14,7 +16,7 @@ import java.util.logging.Logger;
  * @author pbj
  *
  */
-public class DStation implements StartRegObserver {
+public class DStation implements StartRegObserver, ViewActivityObserver {
     public static final Logger logger = Logger.getLogger("bikescheme");
 
     private String instanceName;
@@ -24,6 +26,7 @@ public class DStation implements StartRegObserver {
     private DSTouchScreen touchScreen;
     private CardReader cardReader; 
     private KeyIssuer keyIssuer;
+    private KeyReader keyReader;
     private List<DPoint> dockingPoints;
     private Hub hub;
  
@@ -54,10 +57,13 @@ public class DStation implements StartRegObserver {
         
         touchScreen = new DSTouchScreen(instanceName + ".ts");
         touchScreen.setObserver(this);
+        touchScreen.setViewActivityObserver(this);
         
         cardReader = new CardReader(instanceName + ".cr");
         
         keyIssuer = new KeyIssuer(instanceName + ".ki");
+        
+        keyReader = new KeyReader(instanceName + ".kr");
         
         dockingPoints = new ArrayList<DPoint>();
         
@@ -162,6 +168,29 @@ public class DStation implements StartRegObserver {
     
     public Bike createNewBike() {
     	return hub.createNewBike();
+    }
+    
+    public void viewActivityReceived() {
+    	// Prompt user to enter key?
+    	touchScreen.showPrompt("Please insert your key");
+    	// Get user key id
+    	String keyid = keyReader.waitForKeyInsertion();
+    	
+    	// Present summary
+    	User user = hub.getUserByKeyID(keyid);
+    	ArrayList<Session> userSessions = user.getTodaySessions();
+    	ArrayList<String> displayData = new ArrayList<String>();
+    	for (Session s: userSessions) {
+    		displayData.add(s.getHireDS().getInstanceName());
+    		displayData.add(s.getReturnDS().getInstanceName());
+    		displayData.add(Integer.toString(s.getDuration()));
+    		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    		String datestring = formatter.format(s.getStart());
+    		displayData.add(datestring);
+    	}
+    	//"HireTime","HireDS","ReturnDS","Duration (min)"
+    	touchScreen.showUserActivity(displayData);
+    	
     }
 
 }

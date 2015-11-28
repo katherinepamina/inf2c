@@ -110,7 +110,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	}
 	
 	private void returnBike(User rUser) {
-		rUser.endCurrentSession();
+		rUser.endCurrentSession(station);
 	}
 
 	public void keyInserted(String keyId) {
@@ -122,7 +122,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	private void hireBike(String keyID) {
 		User rentingUser = getUserByKeyID(keyID);
-		rentingUser.startNewSession();
+		rentingUser.startNewSession(station);
 		lock.unlock();
 		okLight.flash();
 		free = false;

@@ -7,18 +7,22 @@ public class Session {
 	private Date start;
 	private Date end;
 	private int numExtensions;
+	private DStation HireDS;
+	private DStation ReturnDS;
 	
 	public Session() {
-		start();
 		numExtensions = 0;
 	}
 	
-	public void start() {
+	public void start(DStation s) {
 		start = Clock.getInstance().getDateAndTime();
+		HireDS = s;
+		
 	}
 	
-	public void end() {
+	public void end(DStation s) {
 		end = Clock.getInstance().getDateAndTime();
+		ReturnDS = s;
 	}
 	
 	public void addExtension() {
@@ -28,8 +32,30 @@ public class Session {
 		return numExtensions;
 	}
 	
+	public DStation getHireDS() {
+		return HireDS;
+	}
+	public DStation getReturnDS() {
+		return ReturnDS;
+	}
+	
+	public int getDuration() {
+		if (end != null) {
+			int diffInMinutes  = Clock.minutesBetween(start, end);
+			return diffInMinutes;
+		}
+		else return -1;
+	}
+	
+	public Date getStart() {
+		return start;
+	}
+	public Date getEnd() {
+		return end;
+	}
+	
 	public int cost() {
-		int diffInMinutes  = Clock.minutesBetween(start, end);
+		int diffInMinutes  = getDuration();
 		
 		// Subtract 15 min for each extension
 		diffInMinutes = diffInMinutes - 15 * numExtensions;

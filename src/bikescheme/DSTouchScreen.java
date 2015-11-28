@@ -91,8 +91,7 @@ public class DSTouchScreen extends AbstractIODevice {
      * 
      * @param keyId
      */
-    // added param 
-    public void viewActivity(String keyId) {
+    public void viewActivity() {
         logger.fine(getInstanceName());
         
         viewActivityObserver.viewActivityReceived();    
@@ -155,6 +154,5 @@ public class DSTouchScreen extends AbstractIODevice {
                 messageArgs));
        
     }
-
      
 }
