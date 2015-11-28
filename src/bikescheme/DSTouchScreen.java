@@ -67,10 +67,11 @@ public class DSTouchScreen extends AbstractIODevice {
      * 
      * @param keyId
      */
-    public void startReg(String personalDetails) {
+    //public void startReg(String personalDetails) {
+    public void startReg(String firstName, String lastName, int bankCardNum, int authCode) {
         logger.fine(getInstanceName());
         
-        startRegObserver.startRegReceived(personalDetails);    
+        startRegObserver.startRegReceived(firstName, lastName, bankCardNum, authCode);    
     }
     
     /* 

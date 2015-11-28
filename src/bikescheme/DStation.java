@@ -93,7 +93,9 @@ public class DStation implements StartRegObserver {
      * 
      * @param personalInfo
      */
-    public void startRegReceived(String personalInfo) {
+    // Changed parameters to avoid string parsing
+    //public void startRegReceived(String personalInfo) {
+    public void startRegReceived(String firstName, String lastName, int bankCardNum, int authCode) {
         logger.fine("Starting on instance " + getInstanceName());
         
         cardReader.requestCard();  // Generate output event
@@ -101,6 +103,13 @@ public class DStation implements StartRegObserver {
         
         cardReader.checkCard();    // Pull in non-triggering input event
         logger.fine("At position 2 on instance " + getInstanceName());
+        
+        // Create a new user
+        int id = 0; // numUsers +  1
+        BankCard card = new BankCard(bankCardNum, authCode);
+        Key key = new Key(id);
+        User u = new User(id, firstName, lastName, card, key);
+        // add user to hub list of users and map of key ids/users
         
         keyIssuer.issueKey(); // Generate output event
     }

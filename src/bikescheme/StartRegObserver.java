@@ -12,6 +12,6 @@ package bikescheme;
  */
 public interface StartRegObserver {
     
-    void startRegReceived(String s);
-
+    //void startRegReceived(String s);
+	void startRegReceived(String firstName, String lastName, int bankCardNum, int authCode);
 }
