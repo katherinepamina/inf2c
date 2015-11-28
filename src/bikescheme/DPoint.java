@@ -91,20 +91,19 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		okLight.flash();
 		lock.lock();
 
-		Bike bike = getBikeByBikeID(bikeID);
+		Bike rBike = getBikeByBikeID(bikeID);
 		
-		if (bike == null) { //bike is being added, create new bike
+		if (rBike == null) { //bike is being added, create new bike
 			Bike newBike = createNewBike();
+			bike = newBike;
+			free = false;
 		}
 		
 		User returningUser = bike.getCurrentUser();
 
-		// if user is a staff member, add Bike
-		if (returningUser == null) {
-			
-			return;
-		} else { //user is returning bike
-			
+		 if (returningUser != null) { //user is returning bike
+			bike = rBike;
+			free = false;
 			returnBike(returningUser);
 
 		}
