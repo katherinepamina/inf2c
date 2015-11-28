@@ -62,13 +62,16 @@ public class Hub implements AddDStationObserver {
         Clock.getInstance().scheduleNotification(
                 new TimedNotificationObserver() {
 
-                    /** 
-                     * Generate dummy display of station occupancy data.
-                     */
+                    
                     @Override
                     public void processTimedNotification() {
                         logger.fine("");
-
+                        
+                        for (String instName : dockingStationMap.keySet()) {
+                        	DStation station = dockingStationMap.get(instName);
+                        	
+                        }
+                        
                         String[] occupancyArray = 
                                 // "DSName","East","North","Status","#Occupied","#DPoints"
                             {  "A",      "100",  "200",  "HIGH",       "19",     "20",
