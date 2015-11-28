@@ -34,10 +34,13 @@ public class DSTouchScreen extends AbstractIODevice {
     public void receiveEvent(Event e) {
         
         if (e.getMessageName().equals("startReg") 
-                && e.getMessageArgs().size() == 1) {
+                && e.getMessageArgs().size() == 4) {
             
-            String personalDetails = e.getMessageArg(0);
-            startReg(personalDetails);
+            String firstName = e.getMessageArg(0);
+            String lastName = e.getMessageArg(1);
+            int bankCardNum = Integer.parseInt(e.getMessageArg(2));
+            int authCode = Integer.parseInt(e.getMessageArg(3));
+            startReg(firstName, lastName, bankCardNum, authCode);
             
         } else if (e.getMessageName().equals("viewActivity") 
                     && e.getMessageArgs().size() == 0) {
