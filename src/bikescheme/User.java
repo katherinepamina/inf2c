@@ -9,6 +9,7 @@ public class User {
 	String lastName;
 	BankCard bankcard;
 	Key key;
+	Session currentSession;
 	private List<Session> allSessions;
 	private List<Session> todaySessions;
 	
@@ -26,5 +27,10 @@ public class User {
 		Session s = new Session();
 		allSessions.add(s);
 		todaySessions.add(s);
+		currentSession = s;
+	}
+	public void endCurrentSession() {
+		currentSession.end();
+		currentSession = null;
 	}
 }
