@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User {
 	String userId;
-	String firstName;
+	String personalDetails;
 	String lastName;
 	BankCard bankcard;
 	Key key;
@@ -13,10 +13,9 @@ public class User {
 	private List<Session> allSessions;
 	private List<Session> todaySessions;
 	
-	public User(String id, String fn, String ln, BankCard b, Key k) {
+	public User(String id, String pd, BankCard b, Key k) {
 		userId = id;
-		firstName = fn;
-		lastName = ln;
+		personalDetails = pd;
 		bankcard = b;
 		key = k;
 		allSessions = new ArrayList<Session>();
