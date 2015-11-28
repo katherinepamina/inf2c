@@ -34,13 +34,10 @@ public class DSTouchScreen extends AbstractIODevice {
     public void receiveEvent(Event e) {
         
         if (e.getMessageName().equals("startReg") 
-                && e.getMessageArgs().size() == 4) {
+                && e.getMessageArgs().size() == 1) {
             
-            String firstName = e.getMessageArg(0);
-            String lastName = e.getMessageArg(1);
-            int bankCardNum = Integer.parseInt(e.getMessageArg(2));
-            int authCode = Integer.parseInt(e.getMessageArg(3));
-            startReg(firstName, lastName, bankCardNum, authCode);
+            String personalDetails = e.getMessageArg(0);
+            startReg(personalDetails);
             
         } else if (e.getMessageName().equals("viewActivity") 
                     && e.getMessageArgs().size() == 0) {
@@ -70,11 +67,10 @@ public class DSTouchScreen extends AbstractIODevice {
      * 
      * @param keyId
      */
-    //public void startReg(String personalDetails) {
-    public void startReg(String firstName, String lastName, int bankCardNum, int authCode) {
+    public void startReg(String personalDetails) {
         logger.fine(getInstanceName());
         
-        startRegObserver.startRegReceived(firstName, lastName, bankCardNum, authCode);    
+        startRegObserver.startRegReceived(personalDetails);    
     }
     
     /* 
