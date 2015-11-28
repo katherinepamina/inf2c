@@ -94,8 +94,7 @@ public class DStation implements StartRegObserver {
      * @param personalInfo
      */
     // Changed parameters to avoid string parsing
-    //public void startRegReceived(String personalInfo) {
-    public void startRegReceived(String firstName, String lastName, int bankCardNum, int authCode) {
+    public void startRegReceived(String personalInfo) {
         logger.fine("Starting on instance " + getInstanceName());
         
         cardReader.requestCard();  // Generate output event
