@@ -87,7 +87,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
     	lock.lock();
     	
     	//check if user is a registered user rather than a staff member
-    	if () { //return bike requirement
+    	if (isUser(keyID)) { //return bike requirement
     		User returningUser = getUserByKeyID(keyID);
     		returningUser.endCurrentSession();
     	}
@@ -114,7 +114,9 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
     	return station.getUserByKeyID(keyID);
     }
     
-    
+    private boolean isUser(String keyID) {
+    	return station.isUser(keyID);
+    }
     
  
 

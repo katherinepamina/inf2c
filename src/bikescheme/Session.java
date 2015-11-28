@@ -14,11 +14,11 @@ public class Session {
 	}
 	
 	public void start() {
-		start = new Date();
+		start = Clock.getInstance().getDateAndTime();
 	}
 	
 	public void end() {
-		end = new Date();
+		end = Clock.getInstance().getDateAndTime();
 	}
 	
 	public void addExtension() {
@@ -29,8 +29,7 @@ public class Session {
 	}
 	
 	public int cost() {
-		long duration  = end.getTime() - start.getTime();
-		long diffInMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
+		int diffInMinutes  = Clock.minutesBetween(start, end);
 		
 		// Subtract 15 min for each extension
 		diffInMinutes = diffInMinutes - 15 * numExtensions;
