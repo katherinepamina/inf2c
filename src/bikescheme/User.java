@@ -25,12 +25,12 @@ public class User {
 	
 	public void startNewSession() {
 		Session s = new Session();
-		allSessions.add(s);
-		todaySessions.add(s);
 		currentSession = s;
 	}
 	public void endCurrentSession() {
 		currentSession.end();
+		allSessions.add(currentSession);
+		todaySessions.add(currentSession);
 		currentSession = null;
 	}
 }

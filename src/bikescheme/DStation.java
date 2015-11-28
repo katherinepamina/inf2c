@@ -146,5 +146,10 @@ public class DStation implements StartRegObserver {
     public User getUserByKeyID(String keyID) {
     	return hub.getUserByKeyID(keyID);
     }
+    
+    //check if user is a registered user rather than staff member
+    public boolean isUser(String keyID) {
+    	return hub.isUser(keyID);
+    }
 
 }
