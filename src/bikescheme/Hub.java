@@ -106,6 +106,7 @@ public class Hub implements AddDStationObserver {
             int numPoints) {
         logger.fine("");
         
+        logger.fine("Adding Docking Station");
         DStation newDStation = 
                 new DStation(instanceName, eastPos, northPos, numPoints, this);
         dockingStationMap.put(instanceName, newDStation);
