@@ -174,8 +174,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver {
     }
     
     public void viewActivityReceived(String keyid) {
-    	// Prompt user to enter key?
-    	touchScreen.showPrompt("Please insert your key");
+    	// Assume that whenever key is inserted, wants to view activity
     	
     	
     	// Present summary
@@ -183,12 +182,12 @@ public class DStation implements KeyInsertionObserver, StartRegObserver {
     	ArrayList<Session> userSessions = user.getTodaySessions();
     	ArrayList<String> displayData = new ArrayList<String>();
     	for (Session s: userSessions) {
-    		displayData.add(s.getHireDS().getInstanceName());
-    		displayData.add(s.getReturnDS().getInstanceName());
-    		displayData.add(Integer.toString(s.getDuration()));
     		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     		String datestring = formatter.format(s.getStart());
     		displayData.add(datestring);
+    		displayData.add(s.getHireDS().getInstanceName());
+    		displayData.add(s.getReturnDS().getInstanceName());
+    		displayData.add(Integer.toString(s.getDuration()));
     	}
     	//"HireTime","HireDS","ReturnDS","Duration (min)"
     	touchScreen.showUserActivity(displayData);

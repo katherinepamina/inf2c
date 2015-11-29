@@ -90,8 +90,8 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	}
 
 	public void bikeDocked(String bikeID) {
-		okLight.flash();
 		lock.lock();
+		okLight.flash();
 
 		Bike rBike = getBikeByBikeID(bikeID);
 
@@ -118,14 +118,14 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	public void keyInserted(String keyId) {
 		logger.fine(getInstanceName());
-		
-		//if it is a registered user, let them rent it. Otherwise it is a staff member
-		if (isUser(keyId)) {
-			hireBike(keyId);
-		} else {
-			removeBike();
+		if (bike != null) {
+			//if it is a registered user, let them rent it. Otherwise it is a staff member
+			if (isUser(keyId)) {
+				hireBike(keyId);
+			} else {
+				removeBike();
+			}
 		}
-
 	}
 	
 	//function to handle bike removal by staff member
