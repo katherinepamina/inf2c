@@ -110,16 +110,16 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
         logger.fine("At position 2 on instance " + getInstanceName());
         
         // Create a new user
-        String id = Integer.toString(hub.getNumUsers() + 1); // numUsers +  1
+        String id = keyIssuer.issueKey(); // Generate output event
         BankCard card = new BankCard(2, 2); // dummy card
         // For simplicity, key id == user id (since each user has only one key)
         Key key = new Key(id);
         User u = new User(id, personalInfo, card, key);
-        hub.getUserList().add(u);
-        hub.getKeyUserMap().put(id,u);
+        
+        hub.addUser(u, id);
         
         
-        keyIssuer.issueKey(); // Generate output event
+        
     }
     
     
