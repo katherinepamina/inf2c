@@ -79,11 +79,11 @@ public class DSTouchScreen extends AbstractIODevice {
      * 
      */
     
-    private ViewActivityObserver viewActivityObserver;
+    //private ViewActivityObserver viewActivityObserver;
     
-    public void setViewActivityObserver(ViewActivityObserver o) {
+    /*public void setViewActivityObserver(ViewActivityObserver o) {
         viewActivityObserver = o;
-    }
+    }*/
     
     /**
      * Model user selecting a "view activity" option to see their completed

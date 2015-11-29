@@ -80,57 +80,43 @@ public class SystemTest {
     public void registerUser() {
         logger.info("Starting test: registerUser");
 
-        setupDemoSystemConfig();
-        
+       
         // Set up input and expected output.
         // Interleave input and expected output events so that sequence 
         // matches that when describing the use case main success scenario.
         logger.info("registerUser");
         
-        input ("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
+        input("1 07:00, HubTerminal, ht, addDStation, A,   10,   0, 15");
+        input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 20");
+        input("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
         expect("2 08:00, CardReader, A.cr, enterCardAndPin");
-        input ("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
+        input("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
         expect("2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
-        
-    }
-    /**
-     *  Run a show high/low occupancy test.
-     *  
-     *  Display event is scheduled to run only when minutes is multiple of 5,
-     *  so only one of the input events should trigger the display. 
-     * 
-     */
-        
-    @Test 
-    public void showHighLowOccupancy() {
-        logger.info("Starting test: showHighLowOccupancy");
-        
-        setupDemoSystemConfig();
-
-        input ("2 08:00, Clock, clk, tick");
-        input ("2 08:01, Clock, clk, tick");
-        input ("2 08:02, Clock, clk, tick");
-        expect("2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-             + "DSName, East, North, Status, #Occupied, #DPoints,"
-             + "     A,  100,   200,   HIGH,        19,       20," 
-             + "     B,  300,  -500,    LOW,         1,       50");
     }
     
-    /**
-     * Run a test to demonstrate basic docking point interface
-     * functionality.
-     * 
-     */
     @Test
-    public void testKeyReaderAndOKLight() {
-        logger.info("Starting test: testKeyReaderAndOKLight");
-        
-        setupDemoSystemConfig();
-        
-        input ("2 09:30, KeyReader, B.2.kr, insertKey, key-2");
-        expect("2 09:30, OKLight,   B.2.ok, flashed");
+    public void viewUserActivity() {
+    	logger.info("Starting test: viewUserActivity");
+    	
+    	input("1 07:00, HubTerminal, ht, addDStation, A,   0,   0, 5");
+        input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 3");
+       
+        input("3 00:00, DStation, A, insertKey");
+        //expect("3 00:00, DSTouchScreen, promptForKeyInsertion");
+        expect("3 00:00, DSTouchScreen, A.ts, showUserActivity");
+        /*User requests view of activity at DSTouchScreen,
+DSTouchScreen prompts for key insertion into reader, KeyReader at DST reads key,
+DSTouchScreen presents a summary of journeys completed since prior midnight when
+key owner was last charged.*/
+    	
     }
+  
+   
     
+    
+    
+   
     
     /*
      * 

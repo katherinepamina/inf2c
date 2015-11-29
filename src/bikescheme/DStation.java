@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author pbj
  *
  */
-public class DStation implements StartRegObserver, ViewActivityObserver {
+public class DStation implements KeyInsertionObserver, StartRegObserver {
     public static final Logger logger = Logger.getLogger("bikescheme");
 
     private String instanceName;
@@ -57,13 +57,13 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
         
         touchScreen = new DSTouchScreen(instanceName + ".ts");
         touchScreen.setObserver(this);
-        touchScreen.setViewActivityObserver(this);
         
         cardReader = new CardReader(instanceName + ".cr");
         
         keyIssuer = new KeyIssuer(instanceName + ".ki");
         
         keyReader = new KeyReader(instanceName + ".kr");
+        keyReader.setObserver(this);
         
         dockingPoints = new ArrayList<DPoint>();
         
@@ -76,6 +76,7 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     void setDistributor(EventDistributor d) {
         touchScreen.addDistributorLinks(d); 
         cardReader.addDistributorLinks(d);
+        keyReader.addDistributorLinks(d);
         for (DPoint dp : dockingPoints) {
             dp.setDistributor(d);
         }
@@ -172,11 +173,10 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     	hub.removeBikeFromMap(bikeID);
     }
     
-    public void viewActivityReceived() {
+    public void viewActivityReceived(String keyid) {
     	// Prompt user to enter key?
     	touchScreen.showPrompt("Please insert your key");
-    	// Get user key id
-    	String keyid = keyReader.waitForKeyInsertion();
+    	
     	
     	// Present summary
     	User user = hub.getUserByKeyID(keyid);
@@ -194,5 +194,8 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     	touchScreen.showUserActivity(displayData);
     	
     }
-
+    
+    public void keyInserted(String keyid) {
+    	viewActivityReceived(keyid);
+    }
 }
