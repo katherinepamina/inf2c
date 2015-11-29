@@ -39,4 +39,7 @@ public class User {
 	public ArrayList<Session> getAllSessions() {
 		return allSessions;
 	}
+	public Session getCurrentSession() {
+		return currentSession;
+	}
 }

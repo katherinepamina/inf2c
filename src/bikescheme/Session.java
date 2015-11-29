@@ -43,8 +43,11 @@ public class Session {
 		if (end != null) {
 			int diffInMinutes  = Clock.minutesBetween(start, end);
 			return diffInMinutes;
+		} else {
+			Date now = Clock.getInstance().getDateAndTime();
+			int diffInMinutes = Clock.minutesBetween(start, now);
+			return diffInMinutes;
 		}
-		else return -1;
 	}
 	
 	public Date getStart() {

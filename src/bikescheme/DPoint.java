@@ -74,10 +74,6 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		return free;
 	}
 
-	public void setFree(boolean f) {
-		free = f;
-	}
-
 	public void addBike(Bike b) {
 		if (isFree()) {
 			bike = b;
@@ -90,6 +86,9 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	}
 
 	public void bikeDocked(String bikeID) {
+		if (!isFree()) {
+			return;
+		}
 		lock.lock();
 		okLight.flash();
 
@@ -118,10 +117,11 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	public void keyInserted(String keyId) {
 		logger.fine(getInstanceName());
-		if (bike != null) {
+		if (bike != null && !isFree()) {
 			//if it is a registered user, let them rent it. Otherwise it is a staff member
 			if (isUser(keyId)) {
 				hireBike(keyId);
+				
 			} else {
 				removeBike();
 			}
@@ -139,7 +139,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	private void hireBike(String keyID) {
 		User rentingUser = getUserByKeyID(keyID);
-		if (rentingUser!=null && bike != null) {
+		if (rentingUser!=null && bike != null && !isFree()) {
 			bike.setCurrentUser(rentingUser);
 			rentingUser.startNewSession(station);
 			lock.unlock();

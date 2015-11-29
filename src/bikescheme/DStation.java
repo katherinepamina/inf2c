@@ -174,27 +174,35 @@ public class DStation implements KeyInsertionObserver, StartRegObserver {
     }
     
     public void viewActivityReceived(String keyid) {
-    	// Assume that whenever key is inserted, wants to view activity
-    	
-    	
     	// Present summary
+    	//"HireTime","HireDS","ReturnDS","Duration (min)"
     	User user = hub.getUserByKeyID(keyid);
+    	if (user == null) {
+    		return;
+    	}
     	ArrayList<Session> userSessions = user.getTodaySessions();
     	ArrayList<String> displayData = new ArrayList<String>();
-    	for (Session s: userSessions) {
-    		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    		String datestring = formatter.format(s.getStart());
-    		displayData.add(datestring);
+	    if (userSessions != null) {	
+    		for (Session s: userSessions) {
+	    		displayData.add(Clock.format(s.getStart()));
+	    		displayData.add(s.getHireDS().getInstanceName());
+	    		displayData.add(s.getReturnDS().getInstanceName());
+	    		displayData.add(Integer.toString(s.getDuration()));
+	    	}
+    	}
+    	if (user.getCurrentSession() != null) {
+    		Session s = user.getCurrentSession();
+    		displayData.add(Clock.format(s.getStart()));
     		displayData.add(s.getHireDS().getInstanceName());
-    		displayData.add(s.getReturnDS().getInstanceName());
+    		displayData.add("Not returned");
     		displayData.add(Integer.toString(s.getDuration()));
     	}
-    	//"HireTime","HireDS","ReturnDS","Duration (min)"
     	touchScreen.showUserActivity(displayData);
     	
     }
     
     public void keyInserted(String keyid) {
+    	// Assume that whenever key is inserted, wants to view activity
     	viewActivityReceived(keyid);
     }
 }
