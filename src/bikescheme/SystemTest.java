@@ -70,7 +70,9 @@ public class SystemTest {
     public void setupDemoAddDStation() {
         input("1 07:00, HubTerminal, ht, addDStation, A,   0,   0, 5");
         input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 3");
+        input("1 07:00, HubTerminal, ht, addDStation, C, 200, 100, 15");
     }
+    
 
     /**
      *  Run the "Register User" use case.
@@ -80,10 +82,6 @@ public class SystemTest {
     public void registerUser() {
         logger.info("Starting test: registerUser");
 
-       
-        // Set up input and expected output.
-        // Interleave input and expected output events so that sequence 
-        // matches that when describing the use case main success scenario.
         logger.info("registerUser");
         
         setupDemoAddDStation();
@@ -92,6 +90,48 @@ public class SystemTest {
         expect("2 08:00, CardReader, A.cr, enterCardAndPin");
         input("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
         expect("2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
+    }
+    
+    @Test
+    public void registerUserMultiple() {
+    	logger.info("Starting test: registerUserMultiple");
+    	
+    	setupDemoAddDStation();
+    	input("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 08:00, CardReader, A.cr, enterCardAndPin");
+        input("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+    	input("20 12:13, DSTouchScreen, C.ts, startReg, Bob");
+    	expect("20 12:13, DSTouchScreen, C.ts, viewPrompt, Please enter your personal details.");
+    	expect("20 12:13, CardReader, C.cr, enterCardAndPin");
+    	input("20 12:13, CardReader, C.cr, checkCard, Bobauthcode");
+    	expect("20 12:13, KeyIssuer, C.ki, keyIssued, C.ki-1");
+    	
+    	input("26 00:00, DSTouchScreen, B.ts, startReg, Cindy");
+    	expect("26 00:00, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.");
+    	expect("26 00:00, CardReader, B.cr, enterCardAndPin");
+    	input("26 00:00, CardReader, B.cr, checkCard, Cindyauthcode");
+    	expect("26 00:00, KeyIssuer, B.ki, keyIssued, B.ki-1");
+    }
+    
+    @Test
+    public void registerUserForImmediateUser() {
+    	setupDemoAddDStation();
+    	input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        input("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 08:00, CardReader, A.cr, enterCardAndPin");
+        input("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        input("2 09:30, KeyReader, A.1.kr, insertKey, A.ki-1");
+        expect("2 09:30, BikeLock, A.1.bl, unlocked");
+        expect("2 09:30, OKLight, A.1.ok, flashed");   
     }
     
     @Test
@@ -131,17 +171,6 @@ public class SystemTest {
     public void viewUserActivity2() {
     	logger.info("Starting test: viewUserActivity2");
     	
-    	/*setupDemoAddDStation();
-        //input("2 10:20, KeyReader, A.4.kr, insertKey, A.ki-4");
-        //expect("2 10:20, BikeLock, A.4.bl, unlocked");
-        //expect("2 10:20, OKLight, A.4.bl, flashed");
-        
-        input("2 10:40, KeyReader, B.kr, insertKey, B.ki-1");
-        expect("2 10:40, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
-        		+ "2 09:30, A, B, 13");
-        		+ "2 10:20, A, Not returned, 20");	
-        		
-        		 */
     	setupDemoAddDStation();
         
         input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
@@ -176,7 +205,69 @@ public class SystemTest {
         		+ "2 10:00, B, Not returned, 20");	
     }
    
-    
+    @Test
+    // Show only the user's activity
+    public void viewUserActivity3() {
+    	setupDemoAddDStation();
+logger.info("Starting test: viewUserActivity2");
+    	
+    	setupDemoAddDStation();
+        
+    	// Add bikes to DPoints A.1 and A.4
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
+        expect("2 08:29, BikeLock, A.4.bl, locked");
+        expect("2 08:29, OKLight, A.4.ok, flashed");
+    	
+        // Register a user, Alice
+    	input("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
+    	expect("2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 08:00, CardReader, A.cr, enterCardAndPin");
+        input("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        // Alice hires and returns bike
+        input("27 09:30, KeyReader, A.1.kr, insertKey, A.ki-1");
+        expect("27 09:30, BikeLock, A.1.bl, unlocked");
+        expect("27 09:30, OKLight, A.1.ok, flashed");
+        
+        input("27 09:45, BikeSensor, B.3.bs, dockBike, 011");
+        expect("27 09:45, BikeLock, B.3.bl, locked");
+        expect("27 09:45, OKLight, B.3.ok, flashed");
+        
+        // Alice hires another bike
+        input("27 10:00, KeyReader, B.3.kr, insertKey, A.ki-1");
+        expect("27 10:00, BikeLock, B.3.bl, unlocked");
+        expect("27 10:00, OKLight, B.3.ok, flashed");
+        
+        // Register another user, Cindy
+        input("27 00:00, DSTouchScreen, B.ts, startReg, Cindy");
+    	expect("27 00:00, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.");
+    	expect("27 00:00, CardReader, B.cr, enterCardAndPin");
+    	input("27 00:00, CardReader, B.cr, checkCard, Cindyauthcode");
+    	expect("27 00:00, KeyIssuer, B.ki, keyIssued, B.ki-1");
+    	
+    	// Cindy uses bike at DPoint A.4
+    	input("27 09:30, KeyReader, A.4.kr, insertKey, B.ki-1");
+        expect("27 09:30, BikeLock, A.4.bl, unlocked");
+        expect("27 09:30, OKLight, A.4.ok, flashed");
+        
+        // Alice checks her daily activity
+        input("27 10:20, KeyReader, B.kr, insertKey, A.ki-1");
+        expect("27 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
+        		+ "27 09:30, A, B, 15,"
+        		+ "27 10:00, B, Not returned, 20");	
+        
+        // Cindy checks her daily activity
+        input("27 10:20, KeyReader, C.kr, insertKey, B.ki-1");
+        expect("27 10:20, DSTouchScreen, C.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
+        		+ "27 09:30, A, Not returned, 50");
+        
+    	
+    }
     
     
    
