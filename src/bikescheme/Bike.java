@@ -1,17 +1,17 @@
 package bikescheme;
 
 public class Bike {
-	private int bikeId;
+	private String bikeId;
 	private boolean faulty;
 	private User currentUser;
 	
-	public Bike(int bid) {
+	public Bike(String bid) {
 		bikeId = bid;
 		faulty = false;
 		currentUser = null;
 	}
 	
-	public int getBikeId() {
+	public String getBikeId() {
 		return bikeId;
 	}
 	

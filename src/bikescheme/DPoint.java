@@ -94,7 +94,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		Bike rBike = getBikeByBikeID(bikeID);
 		
 		if (rBike == null) { //bike is being added, create new bike
-			Bike newBike = createNewBike();
+			Bike newBike = createNewBike(bikeID);
 			bike = newBike;
 			free = false;
 		}
@@ -141,8 +141,8 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		return station.getBikeByBikeID(bikeID);
 	}
 	
-	private Bike createNewBike() {
-		return station.createNewBike();
+	private Bike createNewBike(String bikeID) {
+		return station.createNewBike(bikeID);
 	}
 
 }

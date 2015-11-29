@@ -186,10 +186,10 @@ public class Hub implements AddDStationObserver {
     	return bikeIDToBikeMap.get(bikeID);
     }
     
-    public Bike createNewBike() {
-    	Bike newBike = new Bike(bikeCounter);
-    	bikeIDToBikeMap.put(Integer.toString(bikeCounter), newBike);
-    	bikeCounter++;
+    public Bike createNewBike(String bikeID) {
+    	Bike newBike = new Bike(bikeID);
+    	bikeIDToBikeMap.put(bikeID, newBike);
+    	
     	return newBike;
     }
 

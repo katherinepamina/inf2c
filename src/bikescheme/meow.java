@@ -32,14 +32,27 @@ public class meow {
     private List<Event> expectedOutputEvents;
     
     @Test
-    public void testAddBike() {
+    public void testViewOccupancyDemoConfig() {
     	logger.info("Starting test: addBike");
 
         setupDemoSystemConfig();
-        
+        input ("2 08:00, Clock, clk, tick");
         expect("2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   HIGH,        0,       5," 
+                + "     A,  0,   0,   LOW,        0,       5," 
+                + "     B,  400,  300,    LOW,         0,       3");
+    }
+    
+    @Test
+    public void testViewOccupancyComplex() {
+    	logger.info("Starting test: addBike");
+
+        setupDemoSystemConfig();
+        input ("2 08:00, Clock, clk, tick");
+        input("2 08:10, BikeSensor, A.1.bs");
+        expect("2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   LOW,        0,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
     }
     
@@ -76,64 +89,7 @@ public class meow {
         input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 3");
     }
 
-    /**
-     *  Run the "Register User" use case.
-     * 
-     */
-    @Test
-    public void registerUser() {
-        logger.info("Starting test: registerUser");
 
-        setupDemoSystemConfig();
-        
-        // Set up input and expected output.
-        // Interleave input and expected output events so that sequence 
-        // matches that when describing the use case main success scenario.
-        logger.info("registerUser");
-        
-        input ("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
-        expect("2 08:00, CardReader, A.cr, enterCardAndPin");
-        input ("2 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
-        expect("2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
-        
-    }
-    /**
-     *  Run a show high/low occupancy test.
-     *  
-     *  Display event is scheduled to run only when minutes is multiple of 5,
-     *  so only one of the input events should trigger the display. 
-     * 
-     */
-        
-    @Test 
-    public void showHighLowOccupancy() {
-        logger.info("Starting test: showHighLowOccupancy");
-        
-        setupDemoSystemConfig();
-
-        input ("2 08:00, Clock, clk, tick");
-        input ("2 08:01, Clock, clk, tick");
-        input ("2 08:02, Clock, clk, tick");
-        expect("2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-             + "DSName, East, North, Status, #Occupied, #DPoints,"
-             + "     A,  100,   200,   HIGH,        19,       20," 
-             + "     B,  300,  -500,    LOW,         1,       50");
-    }
-    
-    /**
-     * Run a test to demonstrate basic docking point interface
-     * functionality.
-     * 
-     */
-    @Test
-    public void testKeyReaderAndOKLight() {
-        logger.info("Starting test: testKeyReaderAndOKLight");
-        
-        setupDemoSystemConfig();
-        
-        input ("2 09:30, KeyReader, B.2.kr, insertKey, key-2");
-        expect("2 09:30, OKLight,   B.2.ok, flashed");
-    }
     
     
     /*

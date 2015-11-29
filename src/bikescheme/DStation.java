@@ -162,8 +162,8 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     	return hub.getBikeByBikeID(bikeID);
     }
     
-    public Bike createNewBike() {
-    	return hub.createNewBike();
+    public Bike createNewBike(String bikeID) {
+    	return hub.createNewBike(bikeID);
     }
     
     public void viewActivityReceived() {
