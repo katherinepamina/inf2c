@@ -162,11 +162,9 @@ public class Hub implements AddDStationObserver {
     	return keyIDToUserMap.get(keyID);
     }
     
-    public ArrayList<User> getUserList() {
-    	return users;
-    }
-    public HashMap<String, User> getKeyUserMap() {
-    	return keyIDToUserMap;
+    public void addUser(User u, String keyID) {
+    	users.add(u);
+    	keyIDToUserMap.put(keyID, u);
     }
     public int getNumUsers() {
     	return users.size();

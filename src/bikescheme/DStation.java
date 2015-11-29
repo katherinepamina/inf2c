@@ -103,27 +103,23 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     public void startRegReceived(String personalInfo) {
         logger.fine("Starting on instance " + getInstanceName());
         
-        touchScreen.showPrompt("Please enter your personal details.");
+        cardReader.requestCard();  // Generate output event
         logger.fine("At position 1 on instance " + getInstanceName());
         
-        cardReader.requestCard();  // Generate output event
+        cardReader.checkCard();    // Pull in non-triggering input event
         logger.fine("At position 2 on instance " + getInstanceName());
         
-        cardReader.checkCard();    // Pull in non-triggering input event
-        logger.fine("At position 3 on instance " + getInstanceName());
-        
         // Create a new user
-        String id = Integer.toString(hub.getNumUsers() + 1); // numUsers +  1
+        String id = keyIssuer.issueKey(); // Generate output event
         BankCard card = new BankCard(2, 2); // dummy card
         // For simplicity, key id == user id (since each user has only one key)
         Key key = new Key(id);
         User u = new User(id, personalInfo, card, key);
-        hub.getUserList().add(u);
-        hub.getKeyUserMap().put(id,u);
+        
+        hub.addUser(u, id);
         
         
-        keyIssuer.issueKey(); // Generate output event
-        logger.fine("At position 4 on instance " + getInstanceName());
+        
     }
     
     
@@ -172,7 +168,7 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     
     public void viewActivityReceived() {
     	// Prompt user to enter key?
-    	touchScreen.showPrompt("Please insert your key.");
+    	touchScreen.showPrompt("Please insert your key");
     	// Get user key id
     	String keyid = keyReader.waitForKeyInsertion();
     	

@@ -45,13 +45,43 @@ public class meow {
     
     @Test
     public void testAddBrandNewBike() {
-    	logger.info("Starting test: view occupancy complex");
+    	logger.info("Starting test: add brand new bike");
 
         setupDemoSystemConfig();
         //bike is being added by staff since no users have been registered
         input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
         expect("2 08:10, BikeLock, A.1.bl, locked");
         expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+    }
+    
+    @Test
+    public void testHireBikeSingle() {
+    	logger.info("Starting test: hire single bike and view occupancy pre/post hire");
+
+        setupDemoSystemConfig();
+        //bike is being added by staff since no users have been registered
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        
+        input ("2 08:10, Clock, clk, tick");
+        expect("2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        1,       5," 
+                + "     B,  400,  300,    LOW,         0,       3");
+        
+        
+        input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 09:10, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:11, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        input("2 09:30, KeyReader, A.1.kr, insertKey, A.ki-1");
+        expect("2 08:10, BikeLock, A.1.bl, unlocked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
         
     }
     
