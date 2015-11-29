@@ -192,5 +192,9 @@ public class Hub implements AddDStationObserver {
     	bikeCounter++;
     	return newBike;
     }
+    
+    public HubTerminal getHubTerminal() {
+    	return terminal;
+    }
 
 }
