@@ -171,6 +171,10 @@ public class Hub implements AddDStationObserver {
     	return users.size();
     }
     
+    public int getNumDStations() {
+    	return dockingStationMap.size();
+    }
+    
     //return whether a keyID describes a registered user rather than a staff member
     public boolean isUser(String keyID) {
     	return keyIDToUserMap.containsKey(keyID);
