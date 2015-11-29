@@ -45,6 +45,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		okLight = new OKLight(instanceName + ".ok");
 		lock = new BikeLock(instanceName + ".bl");
 		sensor = new BikeSensor(instanceName + ".bs");
+		sensor.setObserver(this);
 		this.instanceName = instanceName;
 		this.index = index;
 		this.free = true;
@@ -53,11 +54,12 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	public void setDistributor(EventDistributor d) {
 		keyReader.addDistributorLinks(d);
+		sensor.addDistributorLinks(d);
 	}
 
 	public void setCollector(EventCollector c) {
 		okLight.setCollector(c);
-
+		lock.setCollector(c);
 	}
 
 	public String getInstanceName() {

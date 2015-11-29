@@ -33,7 +33,7 @@ public class meow {
     
     @Test
     public void testViewOccupancyDemoConfig() {
-    	logger.info("Starting test: addBike");
+    	logger.info("Starting test: view occupancy simple");
 
         setupDemoSystemConfig();
         input ("2 08:00, Clock, clk, tick");
@@ -44,16 +44,15 @@ public class meow {
     }
     
     @Test
-    public void testViewOccupancyComplex() {
-    	logger.info("Starting test: addBike");
+    public void testAddBrandNewBike() {
+    	logger.info("Starting test: view occupancy complex");
 
         setupDemoSystemConfig();
-        input ("2 08:00, Clock, clk, tick");
-        input("2 08:10, BikeSensor, A.1.bs");
-        expect("2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   LOW,        0,       5," 
-                + "     B,  400,  300,    LOW,         0,       3");
+        //bike is being added by staff since no users have been registered
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
     }
     
     
