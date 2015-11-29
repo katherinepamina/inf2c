@@ -166,6 +166,10 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     	return hub.createNewBike(bikeID);
     }
     
+    public void removeBikeFromMap(String bikeID) {
+    	hub.removeBikeFromMap(bikeID);
+    }
+    
     public void viewActivityReceived() {
     	// Prompt user to enter key?
     	touchScreen.showPrompt("Please insert your key");

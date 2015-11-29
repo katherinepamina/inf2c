@@ -27,7 +27,6 @@ public class Hub implements AddDStationObserver {
     private ArrayList<User> users;
     private HashMap<String, User> keyIDToUserMap;
     private HashMap<String, Bike> bikeIDToBikeMap;
-    private int bikeCounter = 0;
     
     /**
      * 
@@ -189,6 +188,10 @@ public class Hub implements AddDStationObserver {
     	bikeIDToBikeMap.put(bikeID, newBike);
     	
     	return newBike;
+    }
+    
+    public void removeBikeFromMap(String bikeID) {
+    	bikeIDToBikeMap.remove(bikeID);
     }
     
     public HubTerminal getHubTerminal() {

@@ -94,16 +94,17 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		lock.lock();
 
 		Bike rBike = getBikeByBikeID(bikeID);
-		
+
 		if (rBike == null) { //bike is being added, create new bike
 			Bike newBike = createNewBike(bikeID);
 			bike = newBike;
 			free = false;
+			return;
 		}
 		
-		User returningUser = bike.getCurrentUser();
+		User returningUser = rBike.getCurrentUser();
 
-		 if (returningUser != null) { //user is returning bike
+		if (returningUser != null) { //user is returning bike
 			bike = rBike;
 			free = false;
 			returnBike(returningUser);
@@ -117,17 +118,32 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	public void keyInserted(String keyId) {
 		logger.fine(getInstanceName());
-		hireBike(keyId);
+		
+		//if it is a registered user, let them rent it. Otherwise it is a staff member
+		if (isUser(keyId)) {
+			hireBike(keyId);
+		} else {
+			removeBike();
+		}
 
+	}
+	
+	//function to handle bike removal by staff member
+	private void removeBike() {
+		free = true;
+		removeBikeFromMap(bike.getBikeId());
+		bike = null;
+		okLight.flash();
+		lock.unlock();
 	}
 
 	private void hireBike(String keyID) {
 		User rentingUser = getUserByKeyID(keyID);
-		System.out.println(rentingUser);
+		bike.setCurrentUser(rentingUser);
 		rentingUser.startNewSession(station);
 		lock.unlock();
 		okLight.flash();
-		free = false;
+		free = true;;
 		bike = null;
 	}
 
@@ -145,6 +161,10 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	
 	private Bike createNewBike(String bikeID) {
 		return station.createNewBike(bikeID);
+	}
+	
+	public void removeBikeFromMap(String bikeID) {
+		station.removeBikeFromMap(bikeID);
 	}
 
 }
