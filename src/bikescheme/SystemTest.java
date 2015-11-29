@@ -99,12 +99,34 @@ public class SystemTest {
     public void viewUserActivity() {
     	logger.info("Starting test: viewUserActivity");
     	
-    	input("1 07:00, HubTerminal, ht, addDStation, A,   0,   0, 5");
-        input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 3");
+    	setupDemoSystemConfig();
+        
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
+        expect("2 08:29, BikeLock, A.4.bl, locked");
+        expect("2 08:29, OKLight, A.4.ok, flashed");
+        
+        input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 09:10, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:11, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        input("2 09:30, KeyReader, A.1.kr, insertKey, A.ki-1");
+        expect("2 09:30, BikeLock, A.1.bl, unlocked");
+        expect("2 09:30, OKLight, A.2.ok, flashed");
+        
+        input("2 09:43, BikeSensor, B.3.bs, dockBike, 011");
+        expect("2 09:43, BikeLock, B.3.bl, locked");
+        expect("2 09:43, OKLight, B.3.ok, flashed");
+        
+        
        
-        input("3 00:00, DStation, A, insertKey");
-        //expect("3 00:00, DSTouchScreen, promptForKeyInsertion");
-        expect("3 00:00, DSTouchScreen, A.ts, showUserActivity");
+        input("2 10:00, KeyReader, B.kr, insertKey, A.ki-1");
+        expect("2 10:00, DSTouchScreen, B.ts, viewPrompt, Please insert your key");
+        expect("2 10:00, DSTouchScreen, B.ts, viewPrompt, Please insert your key");
         /*User requests view of activity at DSTouchScreen,
 DSTouchScreen prompts for key insertion into reader, KeyReader at DST reads key,
 DSTouchScreen presents a summary of journeys completed since prior midnight when
