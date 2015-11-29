@@ -103,6 +103,8 @@ public class DStation implements StartRegObserver, ViewActivityObserver {
     public void startRegReceived(String personalInfo) {
         logger.fine("Starting on instance " + getInstanceName());
         
+        touchScreen.showPrompt("Please enter your personal details.");
+        
         cardReader.requestCard();  // Generate output event
         logger.fine("At position 1 on instance " + getInstanceName());
         
