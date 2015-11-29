@@ -139,12 +139,14 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 
 	private void hireBike(String keyID) {
 		User rentingUser = getUserByKeyID(keyID);
-		bike.setCurrentUser(rentingUser);
-		rentingUser.startNewSession(station);
-		lock.unlock();
-		okLight.flash();
-		free = true;;
-		bike = null;
+		if (rentingUser!=null && bike != null) {
+			bike.setCurrentUser(rentingUser);
+			rentingUser.startNewSession(station);
+			lock.unlock();
+			okLight.flash();
+			free = true;
+			bike = null;
+		}
 	}
 
 	private User getUserByKeyID(String keyID) {

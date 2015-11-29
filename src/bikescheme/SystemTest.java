@@ -101,13 +101,14 @@ public class SystemTest {
     	
     	setupDemoSystemConfig();
         
-        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        /*input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
         expect("2 08:10, BikeLock, A.1.bl, locked");
         expect("2 08:10, OKLight, A.1.ok, flashed");
         
         input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
         expect("2 08:29, BikeLock, A.4.bl, locked");
         expect("2 08:29, OKLight, A.4.ok, flashed");
+        */
         
         input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
         expect("2 09:10, CardReader, A.cr, enterCardAndPin");
