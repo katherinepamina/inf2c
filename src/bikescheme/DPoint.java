@@ -60,6 +60,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 	public void setDistributor(EventDistributor d) {
 		keyReader.addDistributorLinks(d);
 		sensor.addDistributorLinks(d);
+		faultButton.addDistributorLinks(d);
 	}
 
 	public void setCollector(EventCollector c) {
