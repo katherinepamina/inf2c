@@ -4,6 +4,8 @@ public class Bike {
 	private String bikeId;
 	private boolean faulty;
 	private User currentUser; 
+	private String currentDStationName;
+	private String currentDPointName;
 	
 	public Bike(String bid) {
 		bikeId = bid;
@@ -29,5 +31,21 @@ public class Bike {
 	
 	public User getCurrentUser() {
 		return currentUser;
+	}
+	
+	public void setCurrentDStation(String instName) {
+		currentDStationName = instName;
+	}
+	
+	public String getCurrentDStation() {
+		return currentDStationName;
+	}
+	
+	public void setCurrentDPointName(String instName) {
+		currentDPointName = instName;
+	}
+	
+	public String getCurrentDPointName() {
+		return currentDPointName;
 	}
 }

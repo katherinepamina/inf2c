@@ -104,6 +104,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 		if (rBike == null) { //bike is being added, create new bike
 			Bike newBike = createNewBike(bikeID);
 			bike = newBike;
+			setCurrentLocationBike();
 			free = false;
 			return;
 		}
@@ -112,6 +113,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 
 		if (returningUser != null) { //user is returning bike
 			bike = rBike;
+			setCurrentLocationBike();
 			free = false;
 			returnBike(returningUser);
 		}
@@ -173,6 +175,12 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 	
 	public void removeBikeFromMap(String bikeID) {
 		station.removeBikeFromMap(bikeID);
+	}
+	
+	//sets current location of docked bike
+	private void setCurrentLocationBike() {
+		bike.setCurrentDStation(station.getInstanceName());
+		bike.setCurrentDStation(Integer.toString(this.index));
 	}
 	
 	public void faultButtonPressed() {

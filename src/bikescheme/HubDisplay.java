@@ -59,4 +59,41 @@ public class HubDisplay extends AbstractOutputDevice {
                 messageArgs));
         
     }
+    
+    /**
+     * Show faulty locations
+     * 
+     * Each tuple represents a single bike
+     * The tuple fields are:
+     * 
+     *   DSName    - docking station name
+     *   East      - position in metres East (+) or West (-) 
+     *   North     - position in metres North (+) or South (-)
+     *   DPointIndex    - Spot where bike is
+     * 
+     * @param faultyLocations
+     */
+    public void showFaultyLocations(List<String> faultyLocations) {
+        logger.fine(getInstanceName());
+        
+        String deviceClass = "HubDisplay";
+        String deviceInstance = getInstanceName();
+        String messageName = "viewFaultyLocations";
+        
+        List<String> messageArgs = new ArrayList<String>();
+        String[] preludeArgs = 
+            {"unordered-tuples","4",
+             "DSName","East","North","DPointIndex"};
+        messageArgs.addAll(Arrays.asList(preludeArgs));
+        messageArgs.addAll(faultyLocations);
+        
+        super.sendEvent(
+            new Event(
+                Clock.getInstance().getDateAndTime(), 
+                deviceClass,
+                deviceInstance,
+                messageName,
+                messageArgs));
+        
+    }
 }

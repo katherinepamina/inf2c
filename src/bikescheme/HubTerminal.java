@@ -22,10 +22,12 @@ public class HubTerminal extends AbstractIODevice {
     
     // Fields and methods for device input function
     
-    private AddDStationObserver observer;
+    private AddDStationObserver dStationObserver;
+    private ViewStatsObserver viewStatsObserver;
     
-    public void setObserver(AddDStationObserver o) {
-        observer = o;
+    public void setObserver(AddDStationObserver o, ViewStatsObserver o1) {
+        dStationObserver = o;
+        viewStatsObserver = o1;
     }
     
     /** 
@@ -46,6 +48,11 @@ public class HubTerminal extends AbstractIODevice {
             
             addDStation(instanceName, eastPos, northPos, numPoints);
             
+        } else if (e.getMessageName().equals("viewStats")) {
+        	
+        	String activityType = e.getMessageArgs().get(0);
+        	viewStatsReceived(activityType);
+        	
         } else {
             super.receiveEvent(e);
         } 
@@ -61,12 +68,19 @@ public class HubTerminal extends AbstractIODevice {
         logger.fine(getInstanceName());
         
         
-        observer.addDStation(instanceName, eastPos, northPos, numPoints);
+        dStationObserver.addDStation(instanceName, eastPos, northPos, numPoints);
     }
     
     
     // Insert here support for operations generating output on the 
     // touch screen display.
-    
+    /**
+     * Handle request to view stats
+     */
+    public void viewStatsReceived(String activityType) {
+        logger.fine(getInstanceName());
+        
+        viewStatsObserver.viewStatsReceived(activityType);
+    }
    
 }
