@@ -34,7 +34,13 @@ public class EventTest {
     @Test
     public void equals_testDeviceClassNotEqual() {
     	Event e1 = new Event("31 22:10,C,i,m, a, b, c, d");
-    	Event e2 = new Event("31 22:10,D,k,m, a, b, c, d");
+    	Event e2 = new Event("31 22:10,D,i,m, a, b, c, d");
+    	assertFalse(e1.equals(e2));
+    }
+    @Test
+    public void equals_testInstanceNameNotEqual() {
+    	Event e1 = new Event("31 22:10,C,i,m, a, b, c, d");
+    	Event e2 = new Event("31 22:10,C,k,m, a, b, c, d");
     	assertFalse(e1.equals(e2));
     }
     @Test
@@ -44,7 +50,7 @@ public class EventTest {
     	assertFalse(e1.equals(e2));
     }
     @Test
-    public void equals_ignoreWhiteSpace() {
+    public void equals_testIgnoreWhiteSpace() {
         Event e1 = new Event("1 00:00,C,i,m, a, b, c, d");
         Event e2 = new Event("1 00:00,C,i,m, a,b,c,d");
         assertTrue(e1.equals(e2));

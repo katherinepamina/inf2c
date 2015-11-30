@@ -86,12 +86,13 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 						}
 						for (User u : users) {
 							List<Session> todaySessions = u.getTodaySessions();
+							int totalCost = 0;
 							if (todaySessions != null) {
 								for (Session s : todaySessions) {
-									bankServer.chargeUser(u.getBankCard()
-											.getAuthCode(), s.getCost());
+									totalCost += s.getCost();
 								}
 								todaySessions.clear();
+								bankServer.chargeUser(u.getBankCard().getAuthCode(), totalCost);
 							}
 						}
 					}

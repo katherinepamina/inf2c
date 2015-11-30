@@ -224,6 +224,17 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
     }
     
     private int getDist(int a1, int a2, int b1, int b2) {
+    	// (East(+)/West(-), North(+)/South(-)
+    	int longDiff;
+    	int latDiff;
+    	// Both are West
+    	if (a1<0 && b1<0) {
+    		latDiff = Math.abs(a1 - b1);
+    	}
+    	// One is 
+    	else if (a1<0 || b1<) {
+    		latDiff = Math.abs(a1) + Math.abs(b1);
+    	}
     	return Math.abs((a1-b1)) + Math.abs((a2-b2));
     }
     
