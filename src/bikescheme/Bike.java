@@ -3,7 +3,7 @@ package bikescheme;
 public class Bike {
 	private String bikeId;
 	private boolean faulty;
-	private User currentUser;
+	private User currentUser; 
 	
 	public Bike(String bid) {
 		bikeId = bid;

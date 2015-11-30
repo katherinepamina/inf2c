@@ -342,6 +342,14 @@ logger.info("Starting test: viewUserActivity2");
         
     }
     
+    @Test
+    public void testHireAndReturnBikeSingle() {
+    	testHireBikeSingle();
+    	input("2 09:43, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 09:43, BikeLock, A.1.bl, locked");
+        expect("2 09:43, OKLight, A.1.ok, flashed");
+    }
+    
     
     //tests adding a bike, hiring a bike, responsiveness of view occupancy
     @Test
@@ -573,6 +581,25 @@ logger.info("Starting test: viewUserActivity2");
     			"D, 200, 50, 250");
     }
     
+    @Test
+    public void testReportFaultWithinTimeLimit() {
+    	logger.info("Starting test: testReportFault");
+    	setupDemoSystemConfig();
+ 
+        testHireAndReturnBikeSingle();
+        input("2 09:44, FaultButton, A.1.fb, reportFault");
+        // TODO: add view stats check later
+        
+        
+    }
+    
+    @Test
+    public void testChargeUsers() {
+    	logger.info("Starting test: chargeAllUsers");
+    	setupDemoSystemConfig();
+    	testHireAndReturnBikeSingle();
+    	expect("3 00:00, BankServer, bs, chargeUser, Alice-card-auth, 1");
+    }
     /*
      * 
      * SUPPORT CODE FOR RUNNING TESTS

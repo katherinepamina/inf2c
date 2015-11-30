@@ -57,7 +57,7 @@ public class Session {
 		return end;
 	}
 	
-	public int cost() {
+	public int getCost() {
 		int diffInMinutes  = getDuration();
 		
 		// Subtract 15 min for each extension

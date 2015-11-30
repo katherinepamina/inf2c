@@ -23,6 +23,7 @@ public class Hub implements AddDStationObserver {
 
     private HubTerminal terminal;
     private HubDisplay display;
+    private BankServer bankServer;
     private Map<String,DStation> dockingStationMap;
     private ArrayList<User> users;
     private HashMap<String, User> keyIDToUserMap;
@@ -44,6 +45,7 @@ public class Hub implements AddDStationObserver {
         terminal = new HubTerminal("ht");
         terminal.setObserver(this);
         display = new HubDisplay("hd");
+        bankServer = new BankServer("bs");
         dockingStationMap = new HashMap<String,DStation>();
         users = new ArrayList<User>();
         
@@ -76,7 +78,32 @@ public class Hub implements AddDStationObserver {
                 Clock.getStartDate(), 
                 0, 
                 5);
-
+        
+        // Charge all users daily at midnight
+        Clock.getInstance().scheduleNotification(
+        		new TimedNotificationObserver() {
+        			// function goes here
+        			@Override
+        			public void processTimedNotification() {
+        				logger.fine("");
+        				if (users == null) {
+        					return;
+        				}
+        				for (User u: users) {
+        					List<Session> todaySessions = u.getTodaySessions();
+        					if (todaySessions != null) {
+        						for (Session s: todaySessions) {
+        							bankServer.chargeUser(u.getBankCard().getAuthCode(),
+        									s.getCost());
+        						}
+        						todaySessions.clear();
+        					}
+        				}
+        			}
+        		}, 
+        		Clock.getStartDate(), 
+        		24, 
+        		0);
     }
 
     public void setDistributor(EventDistributor d) {

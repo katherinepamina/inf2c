@@ -9,7 +9,7 @@ public class User {
 	String lastName;
 	BankCard bankcard;
 	Key key;
-	Session currentSession;
+	Session currentSession; 
 	private ArrayList<Session> allSessions;
 	private ArrayList<Session> todaySessions;
 	
@@ -41,5 +41,8 @@ public class User {
 	}
 	public Session getCurrentSession() {
 		return currentSession;
+	}
+	public BankCard getBankCard() {
+		return bankcard;
 	}
 }

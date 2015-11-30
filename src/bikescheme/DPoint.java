@@ -3,6 +3,7 @@
  */
 package bikescheme;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -12,7 +13,7 @@ import java.util.logging.Logger;
  * @author pbj
  * 
  */
-public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
+public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultButtonObserver {
 	public static final Logger logger = Logger.getLogger("bikescheme");
 
 	private KeyReader keyReader;
@@ -24,6 +25,8 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	private BikeLock lock;
 	private BikeSensor sensor;
 	private DStation station;
+	private FaultButton faultButton;
+	private Date mostRecentDock;
 
 	/**
 	 * 
@@ -46,6 +49,8 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		lock = new BikeLock(instanceName + ".bl");
 		sensor = new BikeSensor(instanceName + ".bs");
 		sensor.setObserver(this);
+		faultButton = new FaultButton(instanceName + ".fb");
+		faultButton.setObserver(this);
 		this.instanceName = instanceName;
 		this.index = index;
 		this.free = true;
@@ -91,6 +96,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 		}
 		lock.lock();
 		okLight.flash();
+		mostRecentDock = Clock.getInstance().getDateAndTime();
 
 		Bike rBike = getBikeByBikeID(bikeID);
 
@@ -107,7 +113,6 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 			bike = rBike;
 			free = false;
 			returnBike(returningUser);
-
 		}
 	}
 	
@@ -167,6 +172,20 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver {
 	
 	public void removeBikeFromMap(String bikeID) {
 		station.removeBikeFromMap(bikeID);
+	}
+	
+	public void faultButtonPressed() {
+		// only report fault if there is a bike docked at the point
+		if (bike == null ) {
+			return;
+		}
+		// check that the time hasn't been more than 2 min
+		Date now = Clock.getInstance().getDateAndTime();
+		int diffInMinutes = Math.abs(Clock.minutesBetween(mostRecentDock, now));
+		if (diffInMinutes > 2) {
+			return;
+		}
+		bike.markFaulty(true);
 	}
 
 }
