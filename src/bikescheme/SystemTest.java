@@ -589,7 +589,26 @@ logger.info("Starting test: viewUserActivity2");
         testHireAndReturnBikeSingle();
         input("2 09:44, FaultButton, A.1.fb, reportFault");
         expect("2 09:44, FaultLight, A.1.fl, flashed");
-        // TODO: add view stats check later
+        
+        input("2 09:52, HubTerminal, ht, viewStats, faultyLocations");
+        expect("2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4,"
+                + "DSName, East, North, DPointIndex,"
+                + "     A,  0,   0,   1");
+        
+        
+    }
+    
+    @Test
+    public void testReportFaultOutsideTimeLimit() {
+    	logger.info("Starting test: testReportFault");
+    	setupDemoSystemConfig();
+ 
+        testHireAndReturnBikeSingle();
+        input("2 09:46, FaultButton, A.1.fb, reportFault");
+        
+        input("2 09:52, HubTerminal, ht, viewStats, faultyLocations");
+        expect("2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4,"
+                + "DSName, East, North, DPointIndex");
         
         
     }
@@ -716,13 +735,28 @@ logger.info("Starting test: viewUserActivity2");
         expect("2 16:00, OKLight, B.3.ok, flashed");
         
         //should mark B.3 as faulty
-        input("2 09:51, FaultButton, B.3.fb, reportFault");
-        expect("2 09:51, FaultLight, B.3.fl, flashed");
+        input("2 16:02, FaultButton, B.3.fb, reportFault");
+        expect("2 16:02, FaultLight, B.3.fl, flashed");
         
-        input("2 09:52, HubTerminal, ht, viewStats, faultyLocations");
-        expect("2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4,"
+        input("2 17:35, KeyReader, A.4.kr, insertKey, A.ki-1");
+        expect("2 17:35, BikeLock, A.4.bl, unlocked");
+        expect("2 17:35, OKLight, A.4.ok, flashed");
+        
+        input("2 18:02, BikeSensor, A.5.bs, dockBike, 012");
+        expect("2 18:02, BikeLock, A.5.bl, locked");
+        expect("2 18:02, OKLight, A.5.ok, flashed");
+        
+        //should mark a.5 as faulty
+        input("2 18:02, FaultButton, A.5.fb, reportFault");
+        expect("2 18:02, FaultLight, A.5.fl, flashed");
+        
+        
+        input("2 19:02, HubTerminal, ht, viewStats, faultyLocations");
+        expect("2 19:02, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4,"
                 + "DSName, East, North, DPointIndex,"
-                + "     A,  0,   0,   2");
+                + "     A,  0,   0,   5,"
+                + "     A,  0,   0,   2,"
+                + "     B,  400,   300,   3");
     }
     /*
      * 
