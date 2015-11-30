@@ -7,6 +7,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
  * @author pbj
  *
  */
-public class DStation implements KeyInsertionObserver, StartRegObserver {
+public class DStation implements KeyInsertionObserver, StartRegObserver, ViewActivityObserver, FindFreePointsObserver {
     public static final Logger logger = Logger.getLogger("bikescheme");
 
     private String instanceName;
@@ -57,6 +58,8 @@ public class DStation implements KeyInsertionObserver, StartRegObserver {
         
         touchScreen = new DSTouchScreen(instanceName + ".ts");
         touchScreen.setObserver(this);
+        touchScreen.setViewActivityObserver(this);
+        touchScreen.setFindFreePointsObserver(this);
         
         cardReader = new CardReader(instanceName + ".cr");
         
@@ -174,6 +177,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver {
     }
     
     public void viewActivityReceived(String keyid) {
+    	touchScreen.showPrompt("Please insert your key");
     	// Present summary
     	//"HireTime","HireDS","ReturnDS","Duration (min)"
     	User user = hub.getUserByKeyID(keyid);
@@ -201,8 +205,29 @@ public class DStation implements KeyInsertionObserver, StartRegObserver {
     	
     }
     
+    public void findFreePointsReceived() {
+    	Map<String, DStation> allStations = hub.getDStationMap();
+    	if (allStations == null) {
+    		return;
+    	}
+    	List<String> freePoints = new ArrayList<String>();
+    	for (DStation s: allStations.values()) {
+    		int dist = getDist(eastPos, northPos, s.getEastPos(), s.getNorthPos());
+    		if (dist <= 250 && s.getNumFreePoints() > 0) {
+    			freePoints.add(s.getInstanceName());
+    			freePoints.add(Integer.toString(s.getEastPos()));
+    			freePoints.add(Integer.toString(s.getNorthPos()));
+    			freePoints.add(Integer.toString(dist));
+    		}
+    	}
+    	touchScreen.showFreePoints(freePoints);
+    }
+    
+    private int getDist(int a1, int a2, int b1, int b2) {
+    	return Math.abs((a1-b1)) + Math.abs((a2-b2));
+    }
+    
     public void keyInserted(String keyid) {
-    	// Assume that whenever key is inserted, wants to view activity
-    	viewActivityReceived(keyid);
+    	logger.fine(getInstanceName());
     }
 }

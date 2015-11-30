@@ -11,8 +11,8 @@ package bikescheme;
  * @author pbj
  *
  */
-public interface ViewActivityObserver {
+public interface FindFreePointsObserver {
     
-    void viewActivityReceived(String keyid);
+    void findFreePointsReceived();
 
 }

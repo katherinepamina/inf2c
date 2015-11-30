@@ -78,6 +78,8 @@ public class SystemTest {
         input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 3");
     }
     
+    
+    
 
     /**
      *  Run the "Register User" use case.
@@ -148,10 +150,6 @@ public class SystemTest {
         input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
         expect("2 08:10, BikeLock, A.1.bl, locked");
         expect("2 08:10, OKLight, A.1.ok, flashed");
-        
-        input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
-        expect("2 08:29, BikeLock, A.4.bl, locked");
-        expect("2 08:29, OKLight, A.4.ok, flashed");
     	
     	input("2 08:00, DSTouchScreen, A.ts, startReg, Alice");
     	expect("2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
@@ -167,6 +165,9 @@ public class SystemTest {
         expect("2 09:43, BikeLock, B.3.bl, locked");
         expect("2 09:43, OKLight, B.3.ok, flashed");
         
+        
+        input("2 10:00, DSTouchScreen, B.ts, viewActivity, A.ki-1");
+        expect("2 10:00, DSTouchScreen, B.ts, viewPrompt, Please insert your key");
         input("2 10:00, KeyReader, B.kr, insertKey, A.ki-1");
         expect("2 10:00, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
         		+ "2 09:30, A, B, 13");	
@@ -204,6 +205,9 @@ public class SystemTest {
         expect("2 10:00, BikeLock, B.3.bl, unlocked");
         expect("2 10:00, OKLight, B.3.ok, flashed");
         
+        // Passing in keyid first because unsure of how to retrieve otherwise
+        input("2 10:20, DSTouchScreen, B.ts, viewActivity, A.ki-1");
+        expect("2 10:20, DSTouchScreen, B.ts, viewPrompt, Please insert your key");
         input("2 10:20, KeyReader, B.kr, insertKey, A.ki-1");
         expect("2 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
         		+ "2 09:30, A, B, 13,"
@@ -261,12 +265,16 @@ logger.info("Starting test: viewUserActivity2");
         expect("27 09:30, OKLight, A.4.ok, flashed");
         
         // Alice checks her daily activity
+        input("27 10:20, DSTouchScreen, B.ts, viewActivity, A.ki-1");
+        expect("27 10:20, DSTouchScreen, B.ts, viewPrompt, Please insert your key");
         input("27 10:20, KeyReader, B.kr, insertKey, A.ki-1");
         expect("27 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
         		+ "27 09:30, A, B, 15,"
         		+ "27 10:00, B, Not returned, 20");	
         
         // Cindy checks her daily activity
+        input("27 10:20, DSTouchScreen, C.ts, viewActivity, B.ki-1");
+        expect("27 10:20, DSTouchScreen, C.ts, viewPrompt, Please insert your key");
         input("27 10:20, KeyReader, C.kr, insertKey, B.ki-1");
         expect("27 10:20, DSTouchScreen, C.ts, viewUserActivity, ordered-tuples, 4, HireTime, HireDS, ReturnDS, Duration (min),"
         		+ "27 09:30, A, Not returned, 50");	
@@ -535,6 +543,34 @@ logger.info("Starting test: viewUserActivity2");
                 + "     A,  0,   0,   HIGH,        5,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
         
+    }
+    
+    @Test
+    public void setupFreePointsSystemConfig() {
+    	input("1 07:00, HubTerminal, ht, addDStation, A,   0,   0, 1");
+        input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 10");
+        input("1 07:00, HubTerminal, ht, addDStation, C,   100,   50, 10");
+        input("1 07:00, HubTerminal, ht, addDStation, D, 200, 50, 10");
+        
+        input("1 07:00, BikeSensor, A.1.bs, dockBike, 011");
+        expect("1 07:00, BikeLock, A.1.bl, locked");
+        expect("1 07:00, OKLight, A.1.ok, flashed");
+        input("1 07:00, BikeSensor, B.1.bs, dockBike, 012");
+        expect("1 07:00, BikeLock, B.1.bl, locked");
+        expect("1 07:00, OKLight, B.1.ok, flashed");
+    }
+    
+    @Test
+    public void testFindFreePoints() {
+    	logger.info("Starting test: testFindFreePoints");
+    	
+    	setupFreePointsSystemConfig();
+    	
+    	input("20 10:00, DSTouchScreen, A.ts, findFreePoints");
+    	expect("20 10:00, DSTouchScreen, A.ts, showFreePoints, ordered-tuples, 4," +
+    			"Name, EastPos, NorthPos, Distance (meters)," +
+    			"C, 100, 50, 150," +
+    			"D, 200, 50, 250");
     }
     
     /*

@@ -40,11 +40,16 @@ public class DSTouchScreen extends AbstractIODevice {
             startReg(personalDetails);
             
         } else if (e.getMessageName().equals("viewActivity") 
-                    && e.getMessageArgs().size() == 0) {
+                    && e.getMessageArgs().size() == 1) {
+            
+        	String keyid = e.getMessageArg(0);
+            viewActivity(keyid);
                 
-            viewActivity();
-                
-        } else {
+        } else if (e.getMessageName().equals("findFreePoints")
+        		&& e.getMessageArgs().size() == 0) {
+        	findFreePoints();
+        }
+        else {
             super.receiveEvent(e);
         } 
     }
@@ -79,11 +84,11 @@ public class DSTouchScreen extends AbstractIODevice {
      * 
      */
     
-    //private ViewActivityObserver viewActivityObserver;
+    private ViewActivityObserver viewActivityObserver;
     
-    /*public void setViewActivityObserver(ViewActivityObserver o) {
+    public void setViewActivityObserver(ViewActivityObserver o) {
         viewActivityObserver = o;
-    }*/
+    }
     
     /**
      * Model user selecting a "view activity" option to see their completed
@@ -91,10 +96,25 @@ public class DSTouchScreen extends AbstractIODevice {
      * 
      * @param keyId
      */
-    public void viewActivity() {
+    public void viewActivity(String keyid) {
         logger.fine(getInstanceName());
         
-        //viewActivityObserver.viewActivityReceived();    
+        viewActivityObserver.viewActivityReceived(keyid);    
+    }
+    
+    private FindFreePointsObserver findFreePointsObserver;
+    
+    public void setFindFreePointsObserver(FindFreePointsObserver o) {
+        findFreePointsObserver = o;
+    }
+    
+    
+    /**
+     * Display the free points within 250 m of the current station
+     */
+    public void findFreePoints() {
+    	logger.fine(getInstanceName());
+    	findFreePointsObserver.findFreePointsReceived();
     }
     
     /* 
@@ -132,7 +152,6 @@ public class DSTouchScreen extends AbstractIODevice {
 
     public void showUserActivity(List<String> activityData) {
         logger.fine(getInstanceName());
-        logger.fine(getInstanceName());
         
         String deviceClass = "DSTouchScreen";
         String deviceInstance = getInstanceName();
@@ -153,6 +172,29 @@ public class DSTouchScreen extends AbstractIODevice {
                 messageName,
                 messageArgs));
        
+    }
+    
+    public void showFreePoints(List<String> freePoints) {
+    	logger.fine(getInstanceName());
+        
+    	String deviceClass = "DSTouchScreen";
+    	String deviceInstance = getInstanceName();
+    	String messageName = "showFreePoints";
+    	
+    	List<String> messageArgs = new ArrayList<String>();
+        String[] preludeArgs = 
+            {"ordered-tuples","4",
+             "Name", "EastPos","NorthPos","Distance (meters)"};
+        messageArgs.addAll(Arrays.asList(preludeArgs));
+        messageArgs.addAll(freePoints);
+        
+        super.sendEvent(
+            new Event(
+                Clock.getInstance().getDateAndTime(), 
+                deviceClass,
+                deviceInstance,
+                messageName,
+                messageArgs));
     }
      
 }

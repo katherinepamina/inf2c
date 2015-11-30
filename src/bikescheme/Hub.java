@@ -157,6 +157,9 @@ public class Hub implements AddDStationObserver {
         return dockingStationMap.get(instanceName);
     }
     
+    public Map<String,DStation> getDStationMap() {
+    	return dockingStationMap;
+    }
     public User getUserByKeyID(String keyID) {
     	return keyIDToUserMap.get(keyID);
     }
