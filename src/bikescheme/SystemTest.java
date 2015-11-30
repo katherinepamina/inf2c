@@ -588,6 +588,7 @@ logger.info("Starting test: viewUserActivity2");
  
         testHireAndReturnBikeSingle();
         input("2 09:44, FaultButton, A.1.fb, reportFault");
+        expect("2 09:44, FaultLight, A.1.fl, flashed");
         // TODO: add view stats check later
         
         
@@ -599,6 +600,129 @@ logger.info("Starting test: viewUserActivity2");
     	setupDemoSystemConfig();
     	testHireAndReturnBikeSingle();
     	expect("3 00:00, BankServer, bs, chargeUser, Alice-card-auth, 1");
+    }
+    
+    
+    @Test
+    public void testSingleReportFaultyLocationsViewStats() {
+    	logger.info("Starting test: View Stats of Single Report Faulty Location");
+
+        setupDemoSystemConfig();
+        //bike is being added by staff since no users have been registered
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
+        expect("2 08:29, BikeLock, A.4.bl, locked");
+        expect("2 08:29, OKLight, A.4.ok, flashed");
+        
+        input ("2 08:30, Clock, clk, tick");
+        expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        2,       5," 
+                + "     B,  400,  300,    LOW,         0,       3");
+        
+        input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
+        expect("2 08:43, BikeLock, B.2.bl, locked");
+        expect("2 08:43, OKLight, B.2.ok, flashed");
+        
+        input ("2 08:45, Clock, clk, tick");
+        expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        2,       5," 
+                + "     B,  400,  300,    OK,         1,       3");
+        
+        
+        input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 09:10, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:11, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        input("2 09:30, KeyReader, B.2.kr, insertKey, A.ki-1");
+        expect("2 09:30, BikeLock, B.2.bl, unlocked");
+        expect("2 09:30, OKLight, B.2.ok, flashed");
+        
+        input("2 09:50, BikeSensor, A.2.bs, dockBike, 013");
+        expect("2 09:50, BikeLock, A.2.bl, locked");
+        expect("2 09:50, OKLight, A.2.ok, flashed");
+        
+        //should mark A.2 as faulty
+        input("2 09:51, FaultButton, A.2.fb, reportFault");
+        expect("2 09:51, FaultLight, A.2.fl, flashed");
+        
+        input("2 09:52, HubTerminal, ht, viewStats, faultyLocations");
+        expect("2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4,"
+                + "DSName, East, North, DPointIndex,"
+                + "     A,  0,   0,   2");
+    }
+    
+    @Test
+    public void testMultipleReportFaultyLocationsViewStats() {
+    	logger.info("Starting test: View Stats of Multiple Report Faulty Location");
+
+        setupDemoSystemConfig();
+        //bike is being added by staff since no users have been registered
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
+        expect("2 08:29, BikeLock, A.4.bl, locked");
+        expect("2 08:29, OKLight, A.4.ok, flashed");
+        
+        input ("2 08:30, Clock, clk, tick");
+        expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        2,       5," 
+                + "     B,  400,  300,    LOW,         0,       3");
+        
+        input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
+        expect("2 08:43, BikeLock, B.2.bl, locked");
+        expect("2 08:43, OKLight, B.2.ok, flashed");
+        
+        input ("2 08:45, Clock, clk, tick");
+        expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        2,       5," 
+                + "     B,  400,  300,    OK,         1,       3");
+        
+        
+        input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 09:10, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:11, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        input("2 09:30, KeyReader, B.2.kr, insertKey, A.ki-1");
+        expect("2 09:30, BikeLock, B.2.bl, unlocked");
+        expect("2 09:30, OKLight, B.2.ok, flashed");
+        
+        input("2 09:50, BikeSensor, A.2.bs, dockBike, 013");
+        expect("2 09:50, BikeLock, A.2.bl, locked");
+        expect("2 09:50, OKLight, A.2.ok, flashed");
+        
+        //should mark A.2 as faulty
+        input("2 09:51, FaultButton, A.2.fb, reportFault");
+        expect("2 09:51, FaultLight, A.2.fl, flashed");
+        
+        input("2 15:16, KeyReader, A.1.kr, insertKey, A.ki-1");
+        expect("2 15:16, BikeLock, A.1.bl, unlocked");
+        expect("2 15:16, OKLight, A.1.ok, flashed");
+        
+        input("2 16:00, BikeSensor, B.3.bs, dockBike, 011");
+        expect("2 16:00, BikeLock, B.3.bl, locked");
+        expect("2 16:00, OKLight, B.3.ok, flashed");
+        
+        //should mark B.3 as faulty
+        input("2 09:51, FaultButton, B.3.fb, reportFault");
+        expect("2 09:51, FaultLight, B.3.fl, flashed");
+        
+        input("2 09:52, HubTerminal, ht, viewStats, faultyLocations");
+        expect("2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4,"
+                + "DSName, East, North, DPointIndex,"
+                + "     A,  0,   0,   2");
     }
     /*
      * 

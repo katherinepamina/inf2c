@@ -18,6 +18,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 
 	private KeyReader keyReader;
 	private OKLight okLight;
+	private FaultLight faultLight;
 	private String instanceName;
 	private int index;
 	private boolean free;
@@ -46,6 +47,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 		keyReader = new KeyReader(instanceName + ".kr");
 		keyReader.setObserver(this);
 		okLight = new OKLight(instanceName + ".ok");
+		faultLight = new FaultLight(instanceName + ".fl");
 		lock = new BikeLock(instanceName + ".bl");
 		sensor = new BikeSensor(instanceName + ".bs");
 		sensor.setObserver(this);
@@ -66,6 +68,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 	public void setCollector(EventCollector c) {
 		okLight.setCollector(c);
 		lock.setCollector(c);
+		faultLight.setCollector(c);
 	}
 
 	public String getInstanceName() {
@@ -180,7 +183,10 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 	//sets current location of docked bike
 	private void setCurrentLocationBike() {
 		bike.setCurrentDStation(station.getInstanceName());
-		bike.setCurrentDStation(Integer.toString(this.index));
+		
+		//we're saying the DPointName is the instance name not the index
+		//which starts at 0
+		bike.setCurrentDPointName(Integer.toString(this.index + 1));
 	}
 	
 	public void faultButtonPressed() {
@@ -195,6 +201,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 			return;
 		}
 		bike.markFaulty(true);
+		faultLight.flash();
 	}
 
 }
