@@ -407,6 +407,47 @@ logger.info("Starting test: viewUserActivity2");
         
     }
     
+    // tests adding a bike, removing a bike, responsiveness of view occupancy
+    @Test
+    public void testRemoveBike() {
+    	logger.info("Starting test: remove bike");
+    	setupDemoSystemConfig();
+    	// bike added by staff since no users have been registered
+    	input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+    	expect("2 08:10, BikeLock, A.1.bl, locked");
+    	expect("2 08:10, OKLight, A.1.ok, flashed");
+    	
+    	input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
+        expect("2 08:29, BikeLock, A.4.bl, locked");
+        expect("2 08:29, OKLight, A.4.ok, flashed");
+        
+        input ("2 08:30, Clock, clk, tick");
+        expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        2,       5," 
+                + "     B,  400,  300,    LOW,         0,       3");
+        
+        input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
+        expect("2 08:43, BikeLock, B.2.bl, locked");
+        expect("2 08:43, OKLight, B.2.ok, flashed");
+        
+        input ("2 08:45, Clock, clk, tick");
+        expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        2,       5," 
+                + "     B,  400,  300,    OK,         1,       3");
+        
+        input("2 08:50, KeyReader, A.1.kr, insertKey, staffkey");
+        expect("2 08:50, BikeLock, A.1.bl, unlocked");
+        expect("2 08:50, OKLight, A.1.ok, flashed");
+        input ("2 08:50, Clock, clk, tick");
+        expect("2 08:50, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
+                + "DSName, East, North, Status, #Occupied, #DPoints,"
+                + "     A,  0,   0,   OK,        1,       5," 
+                + "     B,  400,  300,    OK,         1,       3");
+    	
+    }
+    
   //tests adding a bike, hiring a bike, responsiveness of view occupancy
     @Test
     public void testReturnBikeMultiple() {
