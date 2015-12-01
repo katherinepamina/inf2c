@@ -124,7 +124,6 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 	@Override
 	public void addDStation(String instanceName, int eastPos, int northPos,
 			int numPoints) {
-		logger.fine("");
 
 		logger.fine("Adding Docking Station");
 		DStation newDStation = new DStation(instanceName, eastPos, northPos,
