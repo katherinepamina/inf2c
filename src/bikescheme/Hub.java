@@ -66,7 +66,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 
 					@Override
 					public void processTimedNotification() {
-						logger.fine("");
+						logger.fine("update occupancy data view");
 
 						String[] occupancyArray = generateOccupancyArray();
 						// "DSName","East","North","Status","#Occupied","#DPoints"
@@ -76,21 +76,21 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 					}
 
 				}, Clock.getStartDate(), 0, 5);
-
+		
 		// Charge all users daily at midnight
 		Clock.getInstance().scheduleNotification(
 				new TimedNotificationObserver() {
-					// function goes here
+					
 					@Override
 					public void processTimedNotification() {
-						logger.fine("");
+						logger.fine("Charging users at midnight");
 						if (users == null) {
 							return;
 						}
 						for (User u : users) {
 							List<Session> todaySessions = u.getTodaySessions();
-							int totalCost = 0;
 							if (todaySessions != null) {
+								int totalCost = 0;
 								for (Session s : todaySessions) {
 									totalCost += s.getCost();
 								}
@@ -99,7 +99,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 							}
 						}
 					}
-				}, Clock.getStartDate(), 24, 0);
+				}, Clock.parse("1 00:00"), 24, 0);
 	}
 
 	public void setDistributor(EventDistributor d) {
@@ -114,6 +114,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 	public void setCollector(EventCollector c) {
 		display.setCollector(c);
 		terminal.setCollector(c);
+		bankServer.setCollector(c);
 	}
 
 	/**

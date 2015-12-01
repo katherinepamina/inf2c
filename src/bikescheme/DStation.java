@@ -117,7 +117,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
         
         // Create a new user
         String id = keyIssuer.issueKey(); // Generate output event
-        BankCard card = new BankCard(2, "2"); // dummy card
+        BankCard card = new BankCard(2, "dummycode"); // dummy card
         // For simplicity, key id == user id (since each user has only one key)
         Key key = new Key(id);
         User u = new User(id, personalInfo, card, key);

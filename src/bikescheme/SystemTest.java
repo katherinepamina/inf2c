@@ -86,7 +86,7 @@ public class SystemTest {
      * 
      */
     @Test
-    public void registerUser() {
+    public void testRegisterUser() {
         logger.info("Starting test: registerUser");
 
         logger.info("registerUser");
@@ -100,7 +100,7 @@ public class SystemTest {
     }
     
     @Test
-    public void registerUserMultiple() {
+    public void testRegisterUserMultiple() {
     	logger.info("Starting test: registerUserMultiple");
     	
     	setupDemoAddDStation();
@@ -124,7 +124,7 @@ public class SystemTest {
     }
     
     @Test
-    public void registerUserForImmediateUser() {
+    public void testRegisterUserForImmediateUse() {
     	setupDemoAddDStation();
     	input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
         expect("2 08:10, BikeLock, A.1.bl, locked");
@@ -142,7 +142,7 @@ public class SystemTest {
     }
     
     @Test
-    public void viewUserActivity() {
+    public void testViewUserActivity() {
     	logger.info("Starting test: viewUserActivity");
     	
     	setupDemoAddDStation();
@@ -174,8 +174,8 @@ public class SystemTest {
     }
   
     @Test
-    public void viewUserActivity2() {
-    	logger.info("Starting test: viewUserActivity2");
+    public void testViewUserActivity2() {
+    	logger.info("Starting test: testViewUserActivity2");
     	
     	setupDemoAddDStation();
         
@@ -216,7 +216,7 @@ public class SystemTest {
    
     @Test
     // Show only the user's activity
-    public void viewUserActivity3() {
+    public void testViewUserActivity3() {
     	setupDemoAddDStation();
 logger.info("Starting test: viewUserActivity2");
     	
@@ -583,11 +583,12 @@ logger.info("Starting test: viewUserActivity2");
     	expect("20 10:00, DSTouchScreen, A.ts, showFreePoints, ordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"C, 100, 50, 150," +
-    			"D, 200, 50, 250");
+    			"D, 200, 50, 250," +
+    			"F, -50, -50, 100");
     	input("20 10:00, DSTouchScreen, E.ts, findFreePoints");
     	expect("20 10:00, DSTouchScreen, E.ts, showFreePoints, ordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
-    			"C, 100, 50, 225" +
+    			"C, 100, 50, 225," +
     			"F, -50, -50, 125");
     }
     
@@ -628,7 +629,12 @@ logger.info("Starting test: viewUserActivity2");
     	logger.info("Starting test: chargeAllUsers");
     	setupDemoSystemConfig();
     	testHireAndReturnBikeSingle();
-    	expect("3 00:00, BankServer, bs, chargeUser, Alice-card-auth, 1");
+    	input ("3 00:00, Clock, clk, tick");
+    	expect("3 00:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6," +
+    			"DSName, East, North, Status, #Occupied, #DPoints," +
+    			"A, 0, 0, OK, 1, 5," +
+    			"B, 400, 300, LOW, 0, 3");
+    	expect("3 00:00, BankServer, bs, chargeUser, unordered-tuples, 2, AuthorizationCode, Amount, dummycode, 1");
     }
     
     
