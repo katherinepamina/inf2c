@@ -538,13 +538,13 @@ logger.info("Starting test: viewUserActivity2");
     	setupFreePointsSystemConfig();
     	
     	input("20 10:00, DSTouchScreen, A.ts, findFreePoints, A.ki-1");
-    	expect("20 10:00, DSTouchScreen, A.ts, showFreePoints, ordered-tuples, 4," +
+    	expect("20 10:00, DSTouchScreen, A.ts, showFreePoints, unordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"C, 100, 50, 150," +
     			"D, 200, 50, 250," +
     			"F, -50, -50, 100");
     	input("20 10:00, DSTouchScreen, E.ts, findFreePoints, A.ki-1");
-    	expect("20 10:00, DSTouchScreen, E.ts, showFreePoints, ordered-tuples, 4," +
+    	expect("20 10:00, DSTouchScreen, E.ts, showFreePoints, unordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"C, 100, 50, 225," +
     			"F, -50, -50, 125");
@@ -566,7 +566,7 @@ logger.info("Starting test: viewUserActivity2");
         expect("27 09:30, OKLight, A.1.ok, flashed");
         
         input("27 10:00, DSTouchScreen, E.ts, findFreePoints, A.ki-1");
-    	expect("27 10:00, DSTouchScreen, E.ts, showFreePoints, ordered-tuples, 4," +
+    	expect("27 10:00, DSTouchScreen, E.ts, showFreePoints, unordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"A,   0,   0,  125," +
     			"C, 100,  50,  225," +

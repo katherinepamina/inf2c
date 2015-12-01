@@ -184,7 +184,7 @@ public class DSTouchScreen extends AbstractIODevice {
     	
     	List<String> messageArgs = new ArrayList<String>();
         String[] preludeArgs = 
-            {"ordered-tuples","4",
+            {"unordered-tuples","4",
              "Name", "EastPos","NorthPos","Distance (meters)"};
         messageArgs.addAll(Arrays.asList(preludeArgs));
         messageArgs.addAll(freePoints);
