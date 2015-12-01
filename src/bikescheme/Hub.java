@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -209,6 +210,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 	}
 
 	public Bike createNewBike(String bikeID) {
+		
 		Bike newBike = new Bike(bikeID);
 		bikeIDToBikeMap.put(bikeID, newBike);
 
@@ -253,28 +255,28 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 	//sorted by how long they have been rented out using a Comparator
 	private void reportLostBikes() {
 		updateCurrentBikeTimes();
-		ArrayList<Bike> bikeList = (ArrayList<Bike>) bikeIDToBikeMap.values();
-		
+		ArrayList<Bike> bikeList = new ArrayList<Bike>(bikeIDToBikeMap.values());
 		
 		Collections.sort(bikeList, new Comparator<Bike>() {
 
 			public int compare(Bike b1, Bike b2) {
 				if (b1.getCurrentTimeOut() > b2.getCurrentTimeOut()) {
-					return 1;
-				} else if (b1.getCurrentTimeOut() < b2.getCurrentTimeOut()) {
 					return -1;
+				} else if (b1.getCurrentTimeOut() < b2.getCurrentTimeOut()) {
+					return 1;
 				} else {
 					return 0;
 				}
 			}
 			
 		});
-		
 		ArrayList<String> lostBikes = new ArrayList<String>();
+		Iterator<Bike> iter = bikeList.iterator();
 		//only leave those out for over 24 hours
-		for (Bike b : bikeList) {
+		while (iter.hasNext()) {
+			Bike b = iter.next();
 			if (b.getCurrentTimeOut() <= 1440) {
-				bikeList.remove(b);
+				iter.remove();
 			} else {
 				lostBikes.add(b.getBikeId());
 				lostBikes.add(Integer.toString(b.getCurrentTimeOut()));

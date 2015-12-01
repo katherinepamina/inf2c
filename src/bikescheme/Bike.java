@@ -74,6 +74,9 @@ public class Bike {
 	}
 	
 	public void updateCurrentTimeOut() {
+		if (startTime == null) {
+			return;
+		}
 		Date currentTime = Clock.getInstance().getDateAndTime();
 		currentTimeOut = Clock.minutesBetween(startTime, currentTime);
 	}

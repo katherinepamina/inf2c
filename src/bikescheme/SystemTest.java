@@ -488,58 +488,16 @@ logger.info("Starting test: viewUserActivity2");
         input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
         expect("2 08:29, BikeLock, A.4.bl, locked");
         expect("2 08:29, OKLight, A.4.ok, flashed");
-        
-        input ("2 08:30, Clock, clk, tick");
-        expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
-                + "     B,  400,  300,    LOW,         0,       3");
-        
-        input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
-        expect("2 08:43, BikeLock, B.2.bl, locked");
-        expect("2 08:43, OKLight, B.2.ok, flashed");
-        
-        input ("2 08:45, Clock, clk, tick");
-        expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
-                + "     B,  400,  300,    OK,         1,       3");
-        
-        
-        input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
-        expect("2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
-        expect("2 09:10, CardReader, A.cr, enterCardAndPin");
-        input ("2 09:11, CardReader, A.cr, checkCard, Alice-card-auth");
-        expect("2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1");
-        
-        input ("2 09:11, DSTouchScreen, B.ts, startReg, John");
-        expect("2 09:11, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.");
-        expect("2 09:11, CardReader, B.cr, enterCardAndPin");
-        input ("2 09:12, CardReader, B.cr, checkCard, John-card-auth");
-        expect("2 09:12, KeyIssuer, B.ki, keyIssued, B.ki-1");
-        
-        input("2 09:30, KeyReader, B.2.kr, insertKey, B.ki-1");
-        expect("2 09:30, BikeLock, B.2.bl, unlocked");
-        expect("2 09:30, OKLight, B.2.ok, flashed");
-        
+
         input("2 09:43, BikeSensor, A.3.bs, dockBike, 013");
         expect("2 09:43, BikeLock, A.3.bl, locked");
         expect("2 09:43, OKLight, A.3.ok, flashed");
         
-        input("2 09:45, BikeSensor, B.1.bs, dockBike, 014");
-        expect("2 09:45, BikeLock, B.1.bl, locked");
-        expect("2 09:45, OKLight, B.1.ok, flashed");
+        //new bikes added to A
+        input("2 11:10, BikeSensor, A.5.bs, dockBike, 016");
+        expect("2 11:10, BikeLock, A.5.bl, locked");
+        expect("2 11:10, OKLight, A.5.ok, flashed");
         
-        //rents one from B to return to A
-        input("2 10:10, KeyReader, B.1.kr, insertKey, A.ki-1");
-        expect("2 10:10, BikeLock, B.1.bl, unlocked");
-        expect("2 10:10, OKLight, B.1.ok, flashed");
-        
-        input("2 11:45, BikeSensor, A.5.bs, dockBike, 014");
-        expect("2 11:45, BikeLock, A.5.bl, locked");
-        expect("2 11:45, OKLight, A.5.ok, flashed");
-        
-        //new bike added to A for total of 5
         input("2 11:45, BikeSensor, A.2.bs, dockBike, 015");
         expect("2 11:45, BikeLock, A.2.bl, locked");
         expect("2 11:45, OKLight, A.2.ok, flashed");
@@ -652,21 +610,9 @@ logger.info("Starting test: viewUserActivity2");
         expect("2 08:29, BikeLock, A.4.bl, locked");
         expect("2 08:29, OKLight, A.4.ok, flashed");
         
-        input ("2 08:30, Clock, clk, tick");
-        expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
-                + "     B,  400,  300,    LOW,         0,       3");
-        
         input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
         expect("2 08:43, BikeLock, B.2.bl, locked");
         expect("2 08:43, OKLight, B.2.ok, flashed");
-        
-        input ("2 08:45, Clock, clk, tick");
-        expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
-                + "     B,  400,  300,    OK,         1,       3");
         
         
         input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
@@ -707,21 +653,9 @@ logger.info("Starting test: viewUserActivity2");
         expect("2 08:29, BikeLock, A.4.bl, locked");
         expect("2 08:29, OKLight, A.4.ok, flashed");
         
-        input ("2 08:30, Clock, clk, tick");
-        expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
-                + "     B,  400,  300,    LOW,         0,       3");
-        
         input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
         expect("2 08:43, BikeLock, B.2.bl, locked");
         expect("2 08:43, OKLight, B.2.ok, flashed");
-        
-        input ("2 08:45, Clock, clk, tick");
-        expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
-                + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
-                + "     B,  400,  300,    OK,         1,       3");
         
         
         input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
@@ -773,6 +707,71 @@ logger.info("Starting test: viewUserActivity2");
                 + "     A,  0,   0,   5,"
                 + "     A,  0,   0,   2,"
                 + "     B,  400,   300,   3");
+    }
+    
+    @Test
+    public void testReportLostBikes() {
+    	logger.info("Starting test: View Stats of Lost Bikes");
+
+        setupDemoSystemConfig();
+        //bike is being added by staff since no users have been registered
+        input("2 08:10, BikeSensor, A.1.bs, dockBike, 011");
+        expect("2 08:10, BikeLock, A.1.bl, locked");
+        expect("2 08:10, OKLight, A.1.ok, flashed");
+        
+        input("2 08:29, BikeSensor, A.4.bs, dockBike, 012");
+        expect("2 08:29, BikeLock, A.4.bl, locked");
+        expect("2 08:29, OKLight, A.4.ok, flashed");
+        
+        input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
+        expect("2 08:43, BikeLock, B.2.bl, locked");
+        expect("2 08:43, OKLight, B.2.ok, flashed");
+        
+        input("2 08:44, BikeSensor, B.3.bs, dockBike, 014");
+        expect("2 08:44, BikeLock, B.3.bl, locked");
+        expect("2 08:44, OKLight, B.3.ok, flashed");
+        
+        input ("2 09:10, DSTouchScreen, A.ts, startReg, Alice");
+        expect("2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 09:10, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:11, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1");
+        
+        input ("2 09:15, DSTouchScreen, A.ts, startReg, John");
+        expect("2 09:15, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 09:15, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:16, CardReader, A.cr, checkCard, John-card-auth");
+        expect("2 09:16, KeyIssuer, A.ki, keyIssued, A.ki-2");
+        
+        input ("2 09:16, DSTouchScreen, A.ts, startReg, Baluga");
+        expect("2 09:16, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("2 09:16, CardReader, A.cr, enterCardAndPin");
+        input ("2 09:17, CardReader, A.cr, checkCard, Baluga-card-auth");
+        expect("2 09:17, KeyIssuer, A.ki, keyIssued, A.ki-3");
+        
+        //rent 1 bike at 930 - Bike 013
+        input("2 09:30, KeyReader, B.2.kr, insertKey, A.ki-1");
+        expect("2 09:30, BikeLock, B.2.bl, unlocked");
+        expect("2 09:30, OKLight, B.2.ok, flashed");
+        
+        //rent another at 1030 - Bike 012
+        input("2 10:30, KeyReader, A.4.kr, insertKey, A.ki-2");
+        expect("2 10:30, BikeLock, A.4.bl, unlocked");
+        expect("2 10:30, OKLight, A.4.ok, flashed");
+        
+        //rent another at 1130 - Bike 011
+        input("2 11:30, KeyReader, A.1.kr, insertKey, A.ki-3");
+        expect("2 11:30, BikeLock, A.1.bl, unlocked");
+        expect("2 11:30, OKLight, A.1.ok, flashed");
+        
+        
+        input("3 11:31, HubTerminal, ht, viewStats, reportLostBikes");
+        expect("3 11:31, HubDisplay, hd, viewLostBikes, unordered-tuples, 2,"
+                + "BID, TimeOut,"
+                + "     013,  1561,"
+                + "     012,  1501,"
+                + "     011,  1441");
+        
     }
     /*
      * 
