@@ -288,8 +288,8 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 08:00, Clock, clk, tick");
         expect("2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   LOW,        0,       5," 
-                + "     B,  400,  300,    LOW,         0,       3");
+                + "     A,    0,    0,    LOW,    0,       5," 
+                + "     B,  400,  300,    LOW,    0,       3");
     }
     
     @Test
@@ -320,7 +320,7 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 08:10, Clock, clk, tick");
         expect("2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        1,       5," 
+                + "     A,    0,    0,     OK,         1,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
         
         
@@ -336,7 +336,7 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 09:35, Clock, clk, tick");
         expect("2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   LOW,        0,       5," 
+                + "     A,    0,    0,    LOW,         0,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
         
         
@@ -369,7 +369,7 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 08:30, Clock, clk, tick");
         expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
+                + "     A,    0,    0,     OK,         2,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
         
         input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
@@ -379,7 +379,7 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 08:45, Clock, clk, tick");
         expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
+                + "     A,    0,    0,    OK,         2,       5," 
                 + "     B,  400,  300,    OK,         1,       3");
         
         
@@ -401,7 +401,7 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 09:35, Clock, clk, tick");
         expect("2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
+                + "     A,    0,    0,     OK,         2,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
         
         
@@ -424,7 +424,7 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 08:30, Clock, clk, tick");
         expect("2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
+                + "     A,    0,    0,     OK,         2,       5," 
                 + "     B,  400,  300,    LOW,         0,       3");
         
         input("2 08:43, BikeSensor, B.2.bs, dockBike, 013");
@@ -434,16 +434,21 @@ logger.info("Starting test: viewUserActivity2");
         input ("2 08:45, Clock, clk, tick");
         expect("2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        2,       5," 
+                + "     A,    0,    0,    OK,        2,       5," 
                 + "     B,  400,  300,    OK,         1,       3");
         
         input("2 08:50, KeyReader, A.1.kr, insertKey, staffkey");
         expect("2 08:50, BikeLock, A.1.bl, unlocked");
         expect("2 08:50, OKLight, A.1.ok, flashed");
+        
+        input("2 08:50, KeyReader, A.4.kr, insertKey, staffkey");
+        expect("2 08:50, BikeLock, A.4.bl, unlocked");
+        expect("2 08:50, OKLight, A.4.ok, flashed");
+        
         input ("2 08:50, Clock, clk, tick");
         expect("2 08:50, HubDisplay, hd, viewOccupancy, unordered-tuples, 6,"
                 + "DSName, East, North, Status, #Occupied, #DPoints,"
-                + "     A,  0,   0,   OK,        1,       5," 
+                + "     A,    0,    0,   LOW,         0,       5," 
                 + "     B,  400,  300,    OK,         1,       3");
     	
     }
