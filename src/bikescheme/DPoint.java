@@ -117,6 +117,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 		if (returningUser != null) { //user is returning bike
 			bike = rBike;
 			bike.clearStartTime();
+			bike.resetCurrentTimeOut();
 			setCurrentLocationBike();
 			free = false;
 			returnBike(returningUser);

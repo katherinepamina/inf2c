@@ -96,4 +96,39 @@ public class HubDisplay extends AbstractOutputDevice {
                 messageArgs));
         
     }
+    
+    /**
+     * Show faulty locations
+     * 
+     * Each tuple represents a single bike
+     * The tuple fields are:
+     * 
+     *   BID    - Bike ID
+     *   TimeOut      - how long it has been rented out in minutes
+     * 
+     * @param lostBikes
+     */
+    public void showLostBikes(List<String> lostBikes) {
+        logger.fine(getInstanceName());
+        
+        String deviceClass = "HubDisplay";
+        String deviceInstance = getInstanceName();
+        String messageName = "viewLostBikes";
+        
+        List<String> messageArgs = new ArrayList<String>();
+        String[] preludeArgs = 
+            {"unordered-tuples","2",
+             "BID","TimeOut"};
+        messageArgs.addAll(Arrays.asList(preludeArgs));
+        messageArgs.addAll(lostBikes);
+        
+        super.sendEvent(
+            new Event(
+                Clock.getInstance().getDateAndTime(), 
+                deviceClass,
+                deviceInstance,
+                messageName,
+                messageArgs));
+        
+    }
 }

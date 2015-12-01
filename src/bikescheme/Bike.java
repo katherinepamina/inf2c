@@ -9,6 +9,7 @@ public class Bike {
 	private String currentDStationName;
 	private String currentDPointName;
 	private Date startTime;
+	private int currentTimeOut;
 	
 	public Bike(String bid) {
 		bikeId = bid;
@@ -72,8 +73,16 @@ public class Bike {
 		
 	}
 	
-	public int getTimeRentedOut() {
+	public void updateCurrentTimeOut() {
 		Date currentTime = Clock.getInstance().getDateAndTime();
-		return Clock.minutesBetween(startTime, currentTime);
+		currentTimeOut = Clock.minutesBetween(startTime, currentTime);
+	}
+	
+	public int getCurrentTimeOut() {
+		return currentTimeOut;
+	}
+	
+	public void resetCurrentTimeOut() {
+		currentTimeOut = 0;
 	}
 }
