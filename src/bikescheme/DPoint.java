@@ -116,6 +116,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 
 		if (returningUser != null) { //user is returning bike
 			bike = rBike;
+			bike.clearStartTime();
 			setCurrentLocationBike();
 			free = false;
 			returnBike(returningUser);
@@ -152,6 +153,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 		User rentingUser = getUserByKeyID(keyID);
 		if (rentingUser!=null && bike != null && !isFree()) {
 			bike.setCurrentUser(rentingUser);
+			bike.setStartTime();
 			rentingUser.startNewSession(station);
 			lock.unlock();
 			okLight.flash();

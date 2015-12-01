@@ -51,6 +51,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 
 		keyIDToUserMap = new HashMap<String, User>();
 		bikeIDToBikeMap = new HashMap<String, Bike>();
+		Clock.createInstance();
 
 		// Schedule timed notification for generating updates of
 		// hub display.
@@ -242,6 +243,17 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 		}
 		
 		display.showFaultyLocations(faultyList);
+	}
+	
+	//report bikes that have been rented out for over 24 hours
+	private void reportLostBikes() {
+		ArrayList<String> lostList = new ArrayList<String>();
+		
+		for (Bike bike : bikeIDToBikeMap.values()) {
+			if (bike.isOutTooLong()) {
+				
+			}
+		}
 	}
 
 }
