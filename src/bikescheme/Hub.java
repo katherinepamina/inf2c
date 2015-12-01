@@ -69,14 +69,13 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 					public void processTimedNotification() {
 						logger.fine("update occupancy data view");
 
-						String[] occupancyArray = generateOccupancyArray();
+						ArrayList<String> occupancyData = generateOccupancyArray();
 						// "DSName","East","North","Status","#Occupied","#DPoints"
 
-						List<String> occupancyData = Arrays.asList(occupancyArray);
 						display.showOccupancy(occupancyData);
 					}
 
-				}, Clock.getStartDate(), 0, 5);
+				}, Clock.parse("1 00:00"), 0, 5);
 		
 		// Charge all users daily at midnight
 		Clock.getInstance().scheduleNotification(
@@ -141,9 +140,8 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 	}
 
 	// generates Occupancy array based off DStation statuses
-	private String[] generateOccupancyArray() {
-		String[] occupancyArray = new String[dockingStationMap.keySet().size() * 6];
-		int counter = 0;
+	private ArrayList<String> generateOccupancyArray() {
+		ArrayList<String> occupancyList = new ArrayList<String>();
 		for (String instName : dockingStationMap.keySet()) {
 			DStation station = dockingStationMap.get(instName);
 			int east = station.getEastPos();
@@ -161,17 +159,16 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 				status = "OK";
 			}
 
-			occupancyArray[counter] = instName;
-			occupancyArray[counter + 1] = Integer.toString(east);
-			occupancyArray[counter + 2] = Integer.toString(north);
-			occupancyArray[counter + 3] = status;
-			occupancyArray[counter + 4] = Integer.toString(numOccupied);
-			occupancyArray[counter + 5] = Integer.toString(numDPoints);
+			occupancyList.add(instName);
+			occupancyList.add(Integer.toString(east));
+			occupancyList.add(Integer.toString(north));
+			occupancyList.add(status);
+			occupancyList.add(Integer.toString(numOccupied));
+			occupancyList.add(Integer.toString(numDPoints));
 
-			counter += 6;
 		}
 
-		return occupancyArray;
+		return occupancyList;
 	}
 
 	public DStation getDStation(String instanceName) {
@@ -286,6 +283,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 		display.showLostBikes(lostBikes);
 	}
 	
+	//update times across all bikes that have been hired at this time
 	private void updateCurrentBikeTimes() {
 		for (Bike b : bikeIDToBikeMap.values()) {
 			b.updateCurrentTimeOut();
