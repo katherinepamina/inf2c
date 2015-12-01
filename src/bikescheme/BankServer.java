@@ -20,7 +20,7 @@ public class BankServer extends AbstractOutputDevice {
         
         String deviceClass = "BankServer";
         String deviceInstance = getInstanceName();
-        String messageName = "chargeUsers";
+        String messageName = "chargeUser";
         
         List<String> messageArgs = new ArrayList<String>();
         String[] preludeArgs = 

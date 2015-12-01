@@ -14,16 +14,10 @@ import org.junit.Test;
 public class EventTest {
 
     @Test
-    public void test1() {
+    public void equals_testSame() {
         assertEquals(
                 new Event("1 00:00,C,i,m, a, b, c, d"),
                 new Event("1 00:00,C,i,m, a, b, c, d") );
-    }
-    @Test
-    public void test2() {
-        assertNotEquals(
-                new Event("1 00:00,C,i,m, a, b, c, d"),
-                new Event("1 00:00,C,i,m, a, b, c, e") );
     }
     @Test
     public void equals_testDateNotEqual() {

@@ -559,6 +559,8 @@ logger.info("Starting test: viewUserActivity2");
         input("1 07:00, HubTerminal, ht, addDStation, B, 400, 300, 10");
         input("1 07:00, HubTerminal, ht, addDStation, C,   100,   50, 10");
         input("1 07:00, HubTerminal, ht, addDStation, D, 200, 50, 10");
+        input("1 07:00, HubTerminal, ht, addDStation, E, -100, 25, 1");
+        input("1 07:00, HubTerminal, ht, addDStation, F, -50, -50, 10");
         
         input("1 07:00, BikeSensor, A.1.bs, dockBike, 011");
         expect("1 07:00, BikeLock, A.1.bl, locked");
@@ -566,6 +568,9 @@ logger.info("Starting test: viewUserActivity2");
         input("1 07:00, BikeSensor, B.1.bs, dockBike, 012");
         expect("1 07:00, BikeLock, B.1.bl, locked");
         expect("1 07:00, OKLight, B.1.ok, flashed");
+        input("1 07:00, BikeSensor, E.1.bs, dockBike, 013");
+        expect("1 07:00, BikeLock, E.1.bl, locked");
+        expect("1 07:00, OKLight, E.1.ok, flashed");
     }
     
     @Test
@@ -579,6 +584,11 @@ logger.info("Starting test: viewUserActivity2");
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"C, 100, 50, 150," +
     			"D, 200, 50, 250");
+    	input("20 10:00, DSTouchScreen, E.ts, findFreePoints");
+    	expect("20 10:00, DSTouchScreen, E.ts, showFreePoints, ordered-tuples, 4," +
+    			"Name, EastPos, NorthPos, Distance (meters)," +
+    			"C, 100, 50, 225" +
+    			"F, -50, -50, 125");
     }
     
     @Test

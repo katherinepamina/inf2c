@@ -227,15 +227,22 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
     	// (East(+)/West(-), North(+)/South(-)
     	int longDiff;
     	int latDiff;
-    	// Both are West
-    	if (a1<0 && b1<0) {
+    	// Both are West or both are East
+    	if ((a1<=0 && b1<=0) || (a1>=0 && b1>=0)) {
     		latDiff = Math.abs(a1 - b1);
     	}
-    	// One is 
-    	else if (a1<0 || b1<) {
+    	// One is West, one is East
+    	else {
     		latDiff = Math.abs(a1) + Math.abs(b1);
     	}
-    	return Math.abs((a1-b1)) + Math.abs((a2-b2));
+    	// Both are North or both are South
+    	if ((a2<=0 && b2<=0) || (a2 >= 0 && b2 >= 0)) {
+    		longDiff = Math.abs(a2 - b2);
+    	}
+    	else {
+    		longDiff = Math.abs(a2) + Math.abs(b2);
+    	}
+    	return latDiff + longDiff;
     }
     
     public void keyInserted(String keyid) {
