@@ -21,13 +21,13 @@ import java.util.logging.Logger;
  * @author pbj
  * 
  */
-public class Hub implements AddDStationObserver, ViewStatsObserver {
+public class Hub implements HubInterface, AddDStationObserver, ViewStatsObserver {
 	public static final Logger logger = Logger.getLogger("bikescheme");
 
 	private HubTerminal terminal;
 	private HubDisplay display;
 	private BankServer bankServer;
-	private Map<String, DStation> dockingStationMap;
+	private Map<String, DStationInterface> dockingStationMap;
 	private ArrayList<User> users;
 	private HashMap<String, User> keyIDToUserMap;
 	private HashMap<String, Bike> bikeIDToBikeMap;
@@ -49,7 +49,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 		terminal.setObserver(this, this);
 		display = new HubDisplay("hd");
 		bankServer = new BankServer("bs");
-		dockingStationMap = new HashMap<String, DStation>();
+		dockingStationMap = new HashMap<String, DStationInterface>();
 		users = new ArrayList<User>();
 
 		keyIDToUserMap = new HashMap<String, User>();
@@ -143,7 +143,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 	private ArrayList<String> generateOccupancyArray() {
 		ArrayList<String> occupancyList = new ArrayList<String>();
 		for (String instName : dockingStationMap.keySet()) {
-			DStation station = dockingStationMap.get(instName);
+			DStationInterface station = dockingStationMap.get(instName);
 			int east = station.getEastPos();
 			int north = station.getNorthPos();
 			int numFree = station.getNumFreePoints();
@@ -171,11 +171,11 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 		return occupancyList;
 	}
 
-	public DStation getDStation(String instanceName) {
+	public DStationInterface getDStation(String instanceName) {
 		return dockingStationMap.get(instanceName);
 	}
 
-	public Map<String, DStation> getDStationMap() {
+	public Map<String, DStationInterface> getDStationMap() {
 		return dockingStationMap;
 	}
 
@@ -237,7 +237,7 @@ public class Hub implements AddDStationObserver, ViewStatsObserver {
 		for (Bike bike : bikeIDToBikeMap.values()) {
 			if (bike.isFaulty()) {
 				String stationName = bike.getCurrentDStation();
-				DStation currStation = dockingStationMap.get(stationName);
+				DStationInterface currStation = dockingStationMap.get(stationName);
 				faultyList.add(stationName);
 				faultyList.add(Integer.toString(currStation.getEastPos()));
 				faultyList.add(Integer.toString(currStation.getNorthPos()));

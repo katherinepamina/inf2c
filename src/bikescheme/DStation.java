@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author pbj
  *
  */
-public class DStation implements KeyInsertionObserver, StartRegObserver, ViewActivityObserver, FindFreePointsObserver {
+public class DStation implements DStationInterface, KeyInsertionObserver, StartRegObserver, ViewActivityObserver, FindFreePointsObserver {
     public static final Logger logger = Logger.getLogger("bikescheme");
 
     private String instanceName;
@@ -29,7 +29,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
     private KeyIssuer keyIssuer;
     private KeyReader keyReader;
     private List<DPoint> dockingPoints;
-    private Hub hub;
+    private HubInterface hub;
  
     /**
      * 
@@ -76,7 +76,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
         }
     }
        
-    void setDistributor(EventDistributor d) {
+    public void setDistributor(EventDistributor d) {
         touchScreen.addDistributorLinks(d); 
         cardReader.addDistributorLinks(d);
         keyReader.addDistributorLinks(d);
@@ -85,7 +85,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
         }
     }
     
-    void setCollector(EventCollector c) {
+    public void setCollector(EventCollector c) {
         touchScreen.setCollector(c);
         cardReader.setCollector(c);
         keyIssuer.setCollector(c);
@@ -123,9 +123,6 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
         User u = new User(id, personalInfo, card, key);
         
         hub.addUser(u, id);
-        
-        
-        
     }
     
     
@@ -206,12 +203,12 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
     }
     
     public void findFreePointsReceived(String keyid) {
-    	Map<String, DStation> allStations = hub.getDStationMap();
+    	Map<String, DStationInterface> allStations = hub.getDStationMap();
     	if (allStations == null) {
     		return;
     	}
     	List<String> freePoints = new ArrayList<String>();
-    	for (DStation s: allStations.values()) {
+    	for (DStationInterface s: allStations.values()) {
     		int dist = getDist(eastPos, northPos, s.getEastPos(), s.getNorthPos());
     		if (dist <= 250 && s.getNumFreePoints() > 0) {
     			freePoints.add(s.getInstanceName());
