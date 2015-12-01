@@ -194,7 +194,7 @@ public class DPoint implements KeyInsertionObserver, BikeDockingObserver, FaultB
 	
 	public void faultButtonPressed() {
 		// only report fault if there is a bike docked at the point
-		if (bike == null ) {
+		if (bike == null) {
 			return;
 		}
 		// check that the time hasn't been more than 2 min

@@ -61,17 +61,6 @@ public class Bike {
 		startTime = null;
 	}
 	
-	//if bike has been out for longer than 24 hours
-	public boolean isOutTooLong() {
-		if (startTime == null) {
-			return false;
-		}
-		Date currentTime = Clock.getInstance().getDateAndTime();
-		int minDiff = Clock.minutesBetween(startTime, currentTime);
-		
-		return minDiff > 1440; //if true, then it has been longer than 24 hours
-		
-	}
 	
 	public void updateCurrentTimeOut() {
 		if (startTime == null) {
