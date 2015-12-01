@@ -1,0 +1,2422 @@
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testViewOccupancyDemoConfig
+INFO: Starting test: view occupancy simple
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+Actual output events:
+2 08:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: E.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: E.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: E.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen findFreePoints
+FINE: E.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showFreePoints
+FINE: E.ts
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: F.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: F.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: F.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$2 processTimedNotification
+FINE: Charging users at midnight
+Dec 01, 2015 1:40:28 PM bikescheme.BankServer chargeUser
+FINE: bs
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+1 07:00, BikeLock, A.1.bl, locked
+1 07:00, OKLight, A.1.ok, flashed
+1 07:00, BikeLock, B.1.bl, locked
+1 07:00, OKLight, B.1.ok, flashed
+1 07:00, BikeLock, E.1.bl, locked
+1 07:00, OKLight, E.1.ok, flashed
+27 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+27 08:00, CardReader, A.cr, enterCardAndPin
+27 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+27 09:30, BikeLock, A.1.bl, unlocked
+27 09:30, OKLight, A.1.ok, flashed
+27 10:00, DSTouchScreen, E.ts, showFreePoints, unordered-tuples, 4, 
+    Name, EastPos, NorthPos, Distance (meters), 
+       A,       0,        0,               125, 
+       C,     100,       50,               225, 
+       F,     -50,      -50,               125
+27 10:10, BikeLock, F.1.bl, locked
+27 10:10, OKLight, F.1.ok, flashed
+28 00:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        1, 
+         B,  400,   300,    LOW,         1,       10, 
+         C,  100,    50,    LOW,         0,       10, 
+         D,  200,    50,    LOW,         0,       10, 
+         E, -100,    25,   HIGH,         1,        1, 
+         F,  -50,   -50,    LOW,         1,       10
+28 00:00, BankServer, bs, chargeUser, unordered-tuples, 2, 
+    AuthorizationCode, Amount, 
+            dummycode,      1
+Actual output events:
+1 07:00, BikeLock, A.1.bl, locked
+1 07:00, OKLight, A.1.ok, flashed
+1 07:00, BikeLock, B.1.bl, locked
+1 07:00, OKLight, B.1.ok, flashed
+1 07:00, BikeLock, E.1.bl, locked
+1 07:00, OKLight, E.1.ok, flashed
+27 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+27 08:00, CardReader, A.cr, enterCardAndPin
+27 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+27 09:30, BikeLock, A.1.bl, unlocked
+27 09:30, OKLight, A.1.ok, flashed
+27 10:00, DSTouchScreen, E.ts, showFreePoints, unordered-tuples, 4, 
+    Name, EastPos, NorthPos, Distance (meters), 
+       A,       0,        0,               125, 
+       C,     100,       50,               225, 
+       F,     -50,      -50,               125
+27 10:10, BikeLock, F.1.bl, locked
+27 10:10, OKLight, F.1.ok, flashed
+28 00:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        1, 
+         B,  400,   300,    LOW,         1,       10, 
+         C,  100,    50,    LOW,         0,       10, 
+         D,  200,    50,    LOW,         0,       10, 
+         E, -100,    25,   HIGH,         1,        1, 
+         F,  -50,   -50,    LOW,         1,       10
+28 00:00, BankServer, bs, chargeUser, unordered-tuples, 2, 
+    AuthorizationCode, Amount, 
+            dummycode,      1
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testReportFaultOutsideTimeLimit
+INFO: Starting test: testReportFault
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testHireBikeSingle
+INFO: Starting test: hire single bike and view occupancy pre/post hire
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.FaultButton reportFault
+FINE: A.1.fb
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal viewStatsReceived
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showFaultyLocations
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testHireBikeSingle
+INFO: Starting test: hire single bike and view occupancy pre/post hire
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: E.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: E.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: E.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+1 07:00, BikeLock, A.1.bl, locked
+1 07:00, OKLight, A.1.ok, flashed
+1 07:00, BikeLock, B.1.bl, locked
+1 07:00, OKLight, B.1.ok, flashed
+1 07:00, BikeLock, E.1.bl, locked
+1 07:00, OKLight, E.1.ok, flashed
+Actual output events:
+1 07:00, BikeLock, A.1.bl, locked
+1 07:00, OKLight, A.1.ok, flashed
+1 07:00, BikeLock, B.1.bl, locked
+1 07:00, OKLight, B.1.ok, flashed
+1 07:00, BikeLock, E.1.bl, locked
+1 07:00, OKLight, E.1.ok, flashed
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testHireBikeMultiple
+INFO: Starting test: hire bike multiple and view occupancy pre/post
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: B.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.2.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.2
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,     OK,         1,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:11, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+2 09:11, CardReader, B.cr, enterCardAndPin
+2 09:12, KeyIssuer, B.ki, keyIssued, B.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,     OK,         1,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:11, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+2 09:11, CardReader, B.cr, enterCardAndPin
+2 09:12, KeyIssuer, B.ki, keyIssued, B.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testReportFaultWithinTimeLimit
+INFO: Starting test: testReportFault
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testHireBikeSingle
+INFO: Starting test: hire single bike and view occupancy pre/post hire
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.FaultButton reportFault
+FINE: A.1.fb
+Dec 01, 2015 1:40:28 PM bikescheme.FaultLight flash
+FINE: A.1.fl
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal viewStatsReceived
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showFaultyLocations
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+2 09:44, FaultLight, A.1.fl, flashed
+2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex, 
+         A,    0,     0,           1
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+2 09:44, FaultLight, A.1.fl, flashed
+2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex, 
+         A,    0,     0,           1
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testRegisterUser
+INFO: Starting test: registerUser
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testRegisterUser
+INFO: registerUser
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+Actual output events:
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testViewUserActivity
+INFO: Starting test: viewUserActivity
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen viewActivity
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showUserActivity
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation keyInserted
+FINE: B
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:43, BikeLock, B.3.bl, locked
+2 09:43, OKLight, B.3.ok, flashed
+2 10:00, DSTouchScreen, B.ts, viewPrompt, Please insert your key
+2 10:00, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS, ReturnDS, Duration (min), 
+     2 09:30,      A,        B,             13
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:43, BikeLock, B.3.bl, locked
+2 09:43, OKLight, B.3.ok, flashed
+2 10:00, DSTouchScreen, B.ts, viewPrompt, Please insert your key
+2 10:00, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS, ReturnDS, Duration (min), 
+     2 09:30,      A,        B,             13
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testViewOccupancyHigh
+INFO: Starting test: test high occupancy
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.5.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.5.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.5.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 09:43, BikeLock, A.3.bl, locked
+2 09:43, OKLight, A.3.ok, flashed
+2 11:10, BikeLock, A.5.bl, locked
+2 11:10, OKLight, A.5.ok, flashed
+2 11:45, BikeLock, A.2.bl, locked
+2 11:45, OKLight, A.2.ok, flashed
+2 12:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,   HIGH,         5,        5, 
+         B,  400,   300,    LOW,         0,        3
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 09:43, BikeLock, A.3.bl, locked
+2 09:43, OKLight, A.3.ok, flashed
+2 11:10, BikeLock, A.5.bl, locked
+2 11:10, OKLight, A.5.ok, flashed
+2 11:45, BikeLock, A.2.bl, locked
+2 11:45, OKLight, A.2.ok, flashed
+2 12:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,   HIGH,         5,        5, 
+         B,  400,   300,    LOW,         0,        3
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testChargeUsers
+INFO: Starting test: chargeAllUsers
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testHireBikeSingle
+INFO: Starting test: hire single bike and view occupancy pre/post hire
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$2 processTimedNotification
+FINE: Charging users at midnight
+Dec 01, 2015 1:40:28 PM bikescheme.BankServer chargeUser
+FINE: bs
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+3 00:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+3 00:00, BankServer, bs, chargeUser, unordered-tuples, 2, 
+    AuthorizationCode, Amount, 
+            dummycode,      1
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.1.bl, locked
+2 09:43, OKLight, A.1.ok, flashed
+3 00:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+3 00:00, BankServer, bs, chargeUser, unordered-tuples, 2, 
+    AuthorizationCode, Amount, 
+            dummycode,      1
+
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testRemoveBike
+INFO: Starting test: remove bike
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.4.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.4
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,     OK,         1,        3
+2 08:50, BikeLock, A.1.bl, unlocked
+2 08:50, OKLight, A.1.ok, flashed
+2 08:50, BikeLock, A.4.bl, unlocked
+2 08:50, OKLight, A.4.ok, flashed
+2 08:50, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,     OK,         1,        3
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,     OK,         1,        3
+2 08:50, OKLight, A.1.ok, flashed
+2 08:50, BikeLock, A.1.bl, unlocked
+2 08:50, OKLight, A.4.ok, flashed
+2 08:50, BikeLock, A.4.bl, unlocked
+2 08:50, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,     OK,         1,        3
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testHireBikeSingle
+INFO: Starting test: hire single bike and view occupancy pre/post hire
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:10, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         1,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,    LOW,         0,        5, 
+         B,  400,   300,    LOW,         0,        3
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testReturnBikeMultiple
+INFO: Starting test: return bike multiple and view occupancy pre/post
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: B.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.2.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.2
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.Clock sendNotifications
+FINE: clk
+Dec 01, 2015 1:40:28 PM bikescheme.Hub$1 processTimedNotification
+FINE: update occupancy data view
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showOccupancy
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,     OK,         1,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:11, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+2 09:11, CardReader, B.cr, enterCardAndPin
+2 09:12, KeyIssuer, B.ki, keyIssued, B.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.3.bl, locked
+2 09:43, OKLight, A.3.ok, flashed
+2 09:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         3,        5, 
+         B,  400,   300,    LOW,         0,        3
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:30, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,     OK,         1,        3
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:11, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+2 09:11, CardReader, B.cr, enterCardAndPin
+2 09:12, KeyIssuer, B.ki, keyIssued, B.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:35, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         2,        5, 
+         B,  400,   300,    LOW,         0,        3
+2 09:43, BikeLock, A.3.bl, locked
+2 09:43, OKLight, A.3.ok, flashed
+2 09:45, HubDisplay, hd, viewOccupancy, unordered-tuples, 6, 
+    DSName, East, North, Status, #Occupied, #DPoints, 
+         A,    0,     0,     OK,         3,        5, 
+         B,  400,   300,    LOW,         0,        3
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testMultipleReportFaultyLocationsViewStats
+INFO: Starting test: View Stats of Multiple Report Faulty Location
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.2.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.2
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.FaultButton reportFault
+FINE: A.2.fb
+Dec 01, 2015 1:40:28 PM bikescheme.FaultLight flash
+FINE: A.2.fl
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.FaultButton reportFault
+FINE: B.3.fb
+Dec 01, 2015 1:40:28 PM bikescheme.FaultLight flash
+FINE: B.3.fl
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.4.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.4
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.5.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.5.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.5.ok
+Dec 01, 2015 1:40:28 PM bikescheme.FaultButton reportFault
+FINE: A.5.fb
+Dec 01, 2015 1:40:28 PM bikescheme.FaultLight flash
+FINE: A.5.fl
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal viewStatsReceived
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showFaultyLocations
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:50, BikeLock, A.2.bl, locked
+2 09:50, OKLight, A.2.ok, flashed
+2 09:51, FaultLight, A.2.fl, flashed
+2 15:16, BikeLock, A.1.bl, unlocked
+2 15:16, OKLight, A.1.ok, flashed
+2 16:00, BikeLock, B.3.bl, locked
+2 16:00, OKLight, B.3.ok, flashed
+2 16:02, FaultLight, B.3.fl, flashed
+2 17:35, BikeLock, A.4.bl, unlocked
+2 17:35, OKLight, A.4.ok, flashed
+2 18:02, BikeLock, A.5.bl, locked
+2 18:02, OKLight, A.5.ok, flashed
+2 18:02, FaultLight, A.5.fl, flashed
+2 19:02, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex, 
+         A,    0,     0,           5, 
+         A,    0,     0,           2, 
+         B,  400,   300,           3
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:50, BikeLock, A.2.bl, locked
+2 09:50, OKLight, A.2.ok, flashed
+2 09:51, FaultLight, A.2.fl, flashed
+2 15:16, BikeLock, A.1.bl, unlocked
+2 15:16, OKLight, A.1.ok, flashed
+2 16:00, BikeLock, B.3.bl, locked
+2 16:00, OKLight, B.3.ok, flashed
+2 16:02, FaultLight, B.3.fl, flashed
+2 17:35, BikeLock, A.4.bl, unlocked
+2 17:35, OKLight, A.4.ok, flashed
+2 18:02, BikeLock, A.5.bl, locked
+2 18:02, OKLight, A.5.ok, flashed
+2 18:02, FaultLight, A.5.fl, flashed
+2 19:02, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex, 
+         B,  400,   300,           3, 
+         A,    0,     0,           5, 
+         A,    0,     0,           2
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testFindFreePoints
+INFO: Starting test: testFindFreePoints
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: E.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: E.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: E.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen findFreePoints
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showFreePoints
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen findFreePoints
+FINE: E.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showFreePoints
+FINE: E.ts
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+1 07:00, BikeLock, A.1.bl, locked
+1 07:00, OKLight, A.1.ok, flashed
+1 07:00, BikeLock, B.1.bl, locked
+1 07:00, OKLight, B.1.ok, flashed
+1 07:00, BikeLock, E.1.bl, locked
+1 07:00, OKLight, E.1.ok, flashed
+20 10:00, DSTouchScreen, A.ts, showFreePoints, unordered-tuples, 4, 
+    Name, EastPos, NorthPos, Distance (meters), 
+       C,     100,       50,               150, 
+       D,     200,       50,               250, 
+       F,     -50,      -50,               100
+20 10:00, DSTouchScreen, E.ts, showFreePoints, unordered-tuples, 4, 
+    Name, EastPos, NorthPos, Distance (meters), 
+       C,     100,       50,               225, 
+       F,     -50,      -50,               125
+Actual output events:
+1 07:00, BikeLock, A.1.bl, locked
+1 07:00, OKLight, A.1.ok, flashed
+1 07:00, BikeLock, B.1.bl, locked
+1 07:00, OKLight, B.1.ok, flashed
+1 07:00, BikeLock, E.1.bl, locked
+1 07:00, OKLight, E.1.ok, flashed
+20 10:00, DSTouchScreen, A.ts, showFreePoints, unordered-tuples, 4, 
+    Name, EastPos, NorthPos, Distance (meters), 
+       C,     100,       50,               150, 
+       D,     200,       50,               250, 
+       F,     -50,      -50,               100
+20 10:00, DSTouchScreen, E.ts, showFreePoints, unordered-tuples, 4, 
+    Name, EastPos, NorthPos, Distance (meters), 
+       C,     100,       50,               225, 
+       F,     -50,      -50,               125
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testSingleReportFaultyLocationsViewStats
+INFO: Starting test: View Stats of Single Report Faulty Location
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.2.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.2
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.FaultButton reportFault
+FINE: A.2.fb
+Dec 01, 2015 1:40:28 PM bikescheme.FaultLight flash
+FINE: A.2.fl
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal viewStatsReceived
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showFaultyLocations
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:50, BikeLock, A.2.bl, locked
+2 09:50, OKLight, A.2.ok, flashed
+2 09:51, FaultLight, A.2.fl, flashed
+2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex, 
+         A,    0,     0,           2
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 09:50, BikeLock, A.2.bl, locked
+2 09:50, OKLight, A.2.ok, flashed
+2 09:51, FaultLight, A.2.fl, flashed
+2 09:52, HubDisplay, hd, viewFaultyLocations, unordered-tuples, 4, 
+    DSName, East, North, DPointIndex, 
+         A,    0,     0,           2
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testViewUserActivity2
+INFO: Starting test: testViewUserActivity2
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.3.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.3
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen viewActivity
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showUserActivity
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation keyInserted
+FINE: B
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:43, BikeLock, B.3.bl, locked
+2 09:43, OKLight, B.3.ok, flashed
+2 10:00, BikeLock, B.3.bl, unlocked
+2 10:00, OKLight, B.3.ok, flashed
+2 10:20, DSTouchScreen, B.ts, viewPrompt, Please insert your key
+2 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS,     ReturnDS, Duration (min), 
+     2 09:30,      A,            B,             13, 
+     2 10:00,      B, Not returned,             20
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:30, BikeLock, A.1.bl, unlocked
+2 09:30, OKLight, A.1.ok, flashed
+2 09:43, BikeLock, B.3.bl, locked
+2 09:43, OKLight, B.3.ok, flashed
+2 10:00, BikeLock, B.3.bl, unlocked
+2 10:00, OKLight, B.3.ok, flashed
+2 10:20, DSTouchScreen, B.ts, viewPrompt, Please insert your key
+2 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS,     ReturnDS, Duration (min), 
+     2 09:30,      A,            B,             13, 
+     2 10:00,      B, Not returned,             20
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testViewUserActivity3
+INFO: Starting test: viewUserActivity2
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.3.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.3
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: B.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.4.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.4
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen viewActivity
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showUserActivity
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation keyInserted
+FINE: B
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen viewActivity
+FINE: C.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: C.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showUserActivity
+FINE: C.ts
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: C.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation keyInserted
+FINE: C
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+27 09:30, BikeLock, A.1.bl, unlocked
+27 09:30, OKLight, A.1.ok, flashed
+27 09:45, BikeLock, B.3.bl, locked
+27 09:45, OKLight, B.3.ok, flashed
+27 10:00, BikeLock, B.3.bl, unlocked
+27 10:00, OKLight, B.3.ok, flashed
+27 00:00, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+27 00:00, CardReader, B.cr, enterCardAndPin
+27 00:00, KeyIssuer, B.ki, keyIssued, B.ki-1
+27 09:30, BikeLock, A.4.bl, unlocked
+27 09:30, OKLight, A.4.ok, flashed
+27 10:20, DSTouchScreen, B.ts, viewPrompt, Please insert your key
+27 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS,     ReturnDS, Duration (min), 
+    27 09:30,      A,            B,             15, 
+    27 10:00,      B, Not returned,             20
+27 10:20, DSTouchScreen, C.ts, viewPrompt, Please insert your key
+27 10:20, DSTouchScreen, C.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS,     ReturnDS, Duration (min), 
+    27 09:30,      A, Not returned,             50
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+27 09:30, BikeLock, A.1.bl, unlocked
+27 09:30, OKLight, A.1.ok, flashed
+27 09:45, BikeLock, B.3.bl, locked
+27 09:45, OKLight, B.3.ok, flashed
+27 10:00, BikeLock, B.3.bl, unlocked
+27 10:00, OKLight, B.3.ok, flashed
+27 00:00, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+27 00:00, CardReader, B.cr, enterCardAndPin
+27 00:00, KeyIssuer, B.ki, keyIssued, B.ki-1
+27 09:30, BikeLock, A.4.bl, unlocked
+27 09:30, OKLight, A.4.ok, flashed
+27 10:20, DSTouchScreen, B.ts, viewPrompt, Please insert your key
+27 10:20, DSTouchScreen, B.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS,     ReturnDS, Duration (min), 
+    27 09:30,      A,            B,             15, 
+    27 10:00,      B, Not returned,             20
+27 10:20, DSTouchScreen, C.ts, viewPrompt, Please insert your key
+27 10:20, DSTouchScreen, C.ts, viewUserActivity, ordered-tuples, 4, 
+    HireTime, HireDS,     ReturnDS, Duration (min), 
+    27 09:30,      A, Not returned,             50
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testAddBrandNewBike
+INFO: Starting test: add brand new bike
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testReportLostBikes
+INFO: Starting test: View Stats of Lost Bikes
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.1.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: A.4.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.2.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.BikeSensor dockBike
+FINE: B.3.bs
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock lock
+FINE: B.3.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.3.ok
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: B.2.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: B.2
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: B.2.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: B.2.ok
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.4.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.4
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.4.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.4.ok
+Dec 01, 2015 1:40:28 PM bikescheme.KeyReader insertKey
+FINE: A.1.kr
+Dec 01, 2015 1:40:28 PM bikescheme.DPoint keyInserted
+FINE: A.1
+Dec 01, 2015 1:40:28 PM bikescheme.BikeLock unlock
+FINE: A.1.bl
+Dec 01, 2015 1:40:28 PM bikescheme.OKLight flash
+FINE: A.1.ok
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal viewStatsReceived
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.HubDisplay showLostBikes
+FINE: hd
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:44, BikeLock, B.3.bl, locked
+2 08:44, OKLight, B.3.ok, flashed
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:15, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:15, CardReader, A.cr, enterCardAndPin
+2 09:16, KeyIssuer, A.ki, keyIssued, A.ki-2
+2 09:16, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:16, CardReader, A.cr, enterCardAndPin
+2 09:17, KeyIssuer, A.ki, keyIssued, A.ki-3
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 10:30, BikeLock, A.4.bl, unlocked
+2 10:30, OKLight, A.4.ok, flashed
+2 11:30, BikeLock, A.1.bl, unlocked
+2 11:30, OKLight, A.1.ok, flashed
+3 11:31, HubDisplay, hd, viewLostBikes, unordered-tuples, 2, 
+    BID, TimeOut, 
+    013,    1561, 
+    012,    1501, 
+    011,    1441
+Actual output events:
+2 08:10, BikeLock, A.1.bl, locked
+2 08:10, OKLight, A.1.ok, flashed
+2 08:29, BikeLock, A.4.bl, locked
+2 08:29, OKLight, A.4.ok, flashed
+2 08:43, BikeLock, B.2.bl, locked
+2 08:43, OKLight, B.2.ok, flashed
+2 08:44, BikeLock, B.3.bl, locked
+2 08:44, OKLight, B.3.ok, flashed
+2 09:10, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:10, CardReader, A.cr, enterCardAndPin
+2 09:11, KeyIssuer, A.ki, keyIssued, A.ki-1
+2 09:15, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:15, CardReader, A.cr, enterCardAndPin
+2 09:16, KeyIssuer, A.ki, keyIssued, A.ki-2
+2 09:16, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 09:16, CardReader, A.cr, enterCardAndPin
+2 09:17, KeyIssuer, A.ki, keyIssued, A.ki-3
+2 09:30, BikeLock, B.2.bl, unlocked
+2 09:30, OKLight, B.2.ok, flashed
+2 10:30, BikeLock, A.4.bl, unlocked
+2 10:30, OKLight, A.4.ok, flashed
+2 11:30, BikeLock, A.1.bl, unlocked
+2 11:30, OKLight, A.1.ok, flashed
+3 11:31, HubDisplay, hd, viewLostBikes, unordered-tuples, 2, 
+    BID, TimeOut, 
+    013,    1561, 
+    012,    1501, 
+    011,    1441
+
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest testRegisterUserMultiple
+INFO: Starting test: registerUserMultiple
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.HubTerminal addDStation
+FINE: ht
+Dec 01, 2015 1:40:28 PM bikescheme.Hub addDStation
+FINE: Adding Docking Station
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: A.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: A.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance A
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: A.ki
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: C.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance C
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: C.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: C.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance C
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: C.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance C
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: C.ki
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen startReg
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: Starting on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.DSTouchScreen showPrompt
+FINE: B.ts
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader requestCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 1 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.CardReader checkCard
+FINE: B.cr
+Dec 01, 2015 1:40:28 PM bikescheme.DStation startRegReceived
+FINE: At position 2 on instance B
+Dec 01, 2015 1:40:28 PM bikescheme.KeyIssuer issueKey
+FINE: B.ki
+Dec 01, 2015 1:40:28 PM bikescheme.SystemTest checkTestResults
+INFO: 
+Expected output events:
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+20 12:13, DSTouchScreen, C.ts, viewPrompt, Please enter your personal details.
+20 12:13, CardReader, C.cr, enterCardAndPin
+20 12:13, KeyIssuer, C.ki, keyIssued, C.ki-1
+26 00:00, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+26 00:00, CardReader, B.cr, enterCardAndPin
+26 00:00, KeyIssuer, B.ki, keyIssued, B.ki-1
+Actual output events:
+2 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.
+2 08:00, CardReader, A.cr, enterCardAndPin
+2 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1
+20 12:13, DSTouchScreen, C.ts, viewPrompt, Please enter your personal details.
+20 12:13, CardReader, C.cr, enterCardAndPin
+20 12:13, KeyIssuer, C.ki, keyIssued, C.ki-1
+26 00:00, DSTouchScreen, B.ts, viewPrompt, Please enter your personal details.
+26 00:00, CardReader, B.cr, enterCardAndPin
+26 00:00, KeyIssuer, B.ki, keyIssued, B.ki-1
+
+TEST RESULTS
+Number of tests run: 44
+ALL TESTS PASSED
