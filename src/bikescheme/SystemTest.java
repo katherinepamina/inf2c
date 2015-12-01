@@ -537,17 +537,57 @@ logger.info("Starting test: viewUserActivity2");
     	
     	setupFreePointsSystemConfig();
     	
-    	input("20 10:00, DSTouchScreen, A.ts, findFreePoints");
+    	input("20 10:00, DSTouchScreen, A.ts, findFreePoints, A.ki-1");
     	expect("20 10:00, DSTouchScreen, A.ts, showFreePoints, ordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"C, 100, 50, 150," +
     			"D, 200, 50, 250," +
     			"F, -50, -50, 100");
-    	input("20 10:00, DSTouchScreen, E.ts, findFreePoints");
+    	input("20 10:00, DSTouchScreen, E.ts, findFreePoints, A.ki-1");
     	expect("20 10:00, DSTouchScreen, E.ts, showFreePoints, ordered-tuples, 4," +
     			"Name, EastPos, NorthPos, Distance (meters)," +
     			"C, 100, 50, 225," +
     			"F, -50, -50, 125");
+    }
+    
+    @Test
+    public void testFindFreePointsAddExtension() {
+    	setupFreePointsSystemConfig();
+    	
+    	input("27 08:00, DSTouchScreen, A.ts, startReg, Alice");
+        expect("27 08:00, DSTouchScreen, A.ts, viewPrompt, Please enter your personal details.");
+        expect("27 08:00, CardReader, A.cr, enterCardAndPin");
+        input("27 08:01, CardReader, A.cr, checkCard, Alice-card-auth");
+        expect("27 08:01, KeyIssuer, A.ki, keyIssued, A.ki-1");
+    
+    	// hire from A, return at E, E is full, add extension and return at F
+    	input("27 09:30, KeyReader, A.1.kr, insertKey, A.ki-1");
+        expect("27 09:30, BikeLock, A.1.bl, unlocked");
+        expect("27 09:30, OKLight, A.1.ok, flashed");
+        
+        input("27 10:00, DSTouchScreen, E.ts, findFreePoints, A.ki-1");
+    	expect("27 10:00, DSTouchScreen, E.ts, showFreePoints, ordered-tuples, 4," +
+    			"Name, EastPos, NorthPos, Distance (meters)," +
+    			"A,   0,   0,  125," +
+    			"C, 100,  50,  225," +
+    			"F, -50, -50,  125");
+        
+        input("27 10:10, BikeSensor, F.1.bs, dockBike, 011");
+        expect("27 10:10, BikeLock, F.1.bl, locked");
+        expect("27 10:10, OKLight, F.1.ok, flashed");
+        
+        input ("28 00:00, Clock, clk, tick");
+    	expect("28 00:00, HubDisplay, hd, viewOccupancy, unordered-tuples, 6," +
+    			"DSName, East, North, Status, #Occupied, #DPoints," +
+    			"A,    0,   0,  LOW,  0,  1," +
+    			"B,  400, 300,  LOW,  1, 10," +
+    			"C,  100, 50,  LOW,  0, 10," +
+    			"D,  200,  50,  LOW,  0, 10," +
+    			"E, -100,  25, HIGH,  1,  1," +
+    			"F,  -50, -50,  LOW,  1, 10");
+    	expect("28 00:00, BankServer, bs, chargeUser, unordered-tuples, 2, AuthorizationCode, Amount, dummycode, 1");
+        
+    	
     }
     
     @Test

@@ -13,6 +13,6 @@ package bikescheme;
  */
 public interface FindFreePointsObserver {
     
-    void findFreePointsReceived();
+    void findFreePointsReceived(String keyid);
 
 }

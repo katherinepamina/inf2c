@@ -46,8 +46,9 @@ public class DSTouchScreen extends AbstractIODevice {
             viewActivity(keyid);
                 
         } else if (e.getMessageName().equals("findFreePoints")
-        		&& e.getMessageArgs().size() == 0) {
-        	findFreePoints();
+        		&& e.getMessageArgs().size() == 1) {
+        	String keyid = e.getMessageArg(0);
+        	findFreePoints(keyid);
         }
         else {
             super.receiveEvent(e);
@@ -112,9 +113,9 @@ public class DSTouchScreen extends AbstractIODevice {
     /**
      * Display the free points within 250 m of the current station
      */
-    public void findFreePoints() {
+    public void findFreePoints(String keyid) {
     	logger.fine(getInstanceName());
-    	findFreePointsObserver.findFreePointsReceived();
+    	findFreePointsObserver.findFreePointsReceived(keyid);
     }
     
     /* 

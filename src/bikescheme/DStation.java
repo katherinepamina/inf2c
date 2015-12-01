@@ -205,7 +205,7 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
     	
     }
     
-    public void findFreePointsReceived() {
+    public void findFreePointsReceived(String keyid) {
     	Map<String, DStation> allStations = hub.getDStationMap();
     	if (allStations == null) {
     		return;
@@ -221,6 +221,17 @@ public class DStation implements KeyInsertionObserver, StartRegObserver, ViewAct
     		}
     	}
     	touchScreen.showFreePoints(freePoints);
+    	
+    	// Handle adding extensions to the user's current session
+    	if (getNumFreePoints() < 1) {
+    		User user = hub.getUserByKeyID(keyid);
+    		if (user != null) {
+    			Session curr = user.getCurrentSession();
+    			if (curr != null) {
+    				curr.addExtension();
+    			}
+    		}
+    	}
     }
     
     private int getDist(int a1, int a2, int b1, int b2) {

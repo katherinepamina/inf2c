@@ -69,7 +69,7 @@ public class Session {
 		diffInMinutes -= 30;
 		
 		// 2 pound for subsequent 30 min
-		cost += 2 * Math.ceil(diffInMinutes / 30);
+		cost += (2 * Math.ceil(diffInMinutes / 30));
 		return cost;
 	}
 }
