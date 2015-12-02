@@ -48,12 +48,10 @@ public class SystemTest {
      * HubTerminal ht <-----------> Hub  -------->   HubDisplay d
      *                              |   
      *                              |   
-     *                              |   
      *                              v
      * DSTouchScreen x.ts <---->  
      * CardReader x.cr <------->  DStation x   -------> KeyIssuer x.ki
      *                          |  x in {A,B}
-     *                          |
      *                          |
      *                          v
      * KeyReader x.k.kr ---> DPoint x.k    ------> OKLight x.k.ok
