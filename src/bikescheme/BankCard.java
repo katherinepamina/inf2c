@@ -1,4 +1,9 @@
 package bikescheme;
+/*
+*
+* BankCard class for each user
+*
+*/
 
 public class BankCard {
 	private int cardNumber;
